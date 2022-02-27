@@ -16,14 +16,14 @@ const Service = () => {
 
     return (
         <div>
-            <Container>
+            <Container sx={{mt: {xs:9,md:15},mb:{xs:12,md:15}}}>
             <Typography  sx={{color:"#2196f3", fontSize:"18px", mt: 5}} variant="button" display="block" gutterBottom>
                 Our Services
             </Typography>
-            <Typography  sx={{ fontWeight: 500 , pb:2, pt: .2}} variant="h4" gutterBottom component="div">
+            <Typography  sx={{ fontWeight: 500 , pb:0, pt: .2}} variant="h4" gutterBottom component="div">
                 Service We Provided
             </Typography>
-            <Box sx={{ flexGrow: 1 }}> 
+            <Box sx={{ flexGrow: 1, mt:5 }}> 
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
             {
                 services.map(service=>

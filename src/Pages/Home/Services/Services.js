@@ -29,7 +29,7 @@ const Services = (props) => {
     return (
         
                 
-            <Grid item xs={4}  md={4} >
+            <Grid xs={4}  md={4} sx={{my:3}}>
                 <Card className={classes.card}>
                      <CardMedia
                         className={classes.image}
@@ -39,10 +39,10 @@ const Services = (props) => {
                         alt="green iguana"
                     /> 
                     
-                     <Typography  sx={{ fontWeight: 500 }} variant="h6" gutterBottom component="div">
+                     <Typography  sx={{ fontWeight: 500, my:2}} variant="h6" gutterBottom component="div">
                          {name}
                      </Typography>
-                    <Typography variant="body2" gutterBottom>
+                    <Typography sx={{mb:2}} variant="body2" gutterBottom>
                    {details}
                 </Typography>
                  </Card>

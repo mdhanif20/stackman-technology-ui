@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Winson Herry",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos debitis ut aut natus repellendus sequi porro dicta exercitationem, eveniet consequatur necessitatibus unde corporis totam aperiam facere vero ullam modi facilis!",
+      "image": "https://i.ibb.co/cDWJZ9B/people-1.png",
+      "country": "California"
+    },
+    {
+      "id": 2,
+      "name": "Maikel Filps",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos debitis ut aut natus repellendus sequi porro dicta exercitationem, eveniet consequatur necessitatibus unde corporis totam aperiam facere vero ullam modi facilis!",
+      "image": "https://i.ibb.co/47DHpxZ/people-2.png",
+      "country": "Texus"
+    },
+    {
+      "id": 3,
+      "name": "Toya Khan",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos debitis ut aut natus repellendus sequi porro dicta exercitationem, eveniet consequatur necessitatibus unde corporis totam aperiam facere vero ullam modi facilis!",
+      "image": "https://i.ibb.co/y8MrwVN/people-3.png",
+      "country": "California"
+    }
+  ]

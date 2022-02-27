@@ -29,7 +29,7 @@ const useStyle = makeStyles({
 
     },
     button:{
-        margin:"20px 0px 0px 0px",
+        margin:"10px 0px 0px 0px",
         backgroundColor:"#3bc5c5",
         '&:hover':{
             backgroundColor:"#3bc5c5"
@@ -43,9 +43,9 @@ const useStyle = makeStyles({
         background:`linear-gradient(
             to top,
             rgba(252 252 255 / 46%) 0%,
-            rgba(252 252 255 / 46%) 65%,
-            rgba(12, 13, 22, 0.78) 65%,
-            rgba(12, 13, 22, 0.78) 100%
+            rgba(252 252 255 / 46%) 50%,
+            rgba(12, 13, 22, 0.68) 50%,
+            rgba(12, 13, 22, 0.68) 100%
         )`,
         backgroundBlendMode: "screen"
     },
@@ -78,17 +78,17 @@ const Banner = () => {
            </Box>
 
            <Box  sx={{display:{xs:"block", md:"none"},pt:7}} className={classes.smallDougleColorBg}>
-                <Container sx={{pt:10,pb:7}}>
+                <Container sx={{pt:15,pb:3}}>
                     <Grid container >
                     <Grid sx={{display:{xs:"block", md:"none"}}} xs={12} md={6}>
                             <img  className={classes.bannerImage} src={image} alt="" />
                         </Grid>
                         <Grid  className={classes.textArea} xs={12} md={6}>
-                        <Typography sx={{ fontWeight: 'medium', color:"#203047",pt:3}} variant="h4" gutterBottom component="div">
+                        <Typography sx={{ fontWeight: 'medium', color:"#203047",pt:0}} variant="h4" gutterBottom component="div">
                             Your New Smile <br /> Start Here
                         </Typography>
-                        <Typography sx={{pb:2}} variant="caption" display="block" gutterBottom>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Et iste saepe tempora officia laborum aliquam adipisci <br />perferendis porro minima. Et iste saepe tempora <br /> officia laborum aliquam adipisci perferendis porro minima.
+                        <Typography sx={{pb:1}} variant="caption" display="block" gutterBottom>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et iste saepe tempora officia laborum aliquam adipisci perferendis porro minima. Et iste saepe tempora officia laborum aliquam adipisci perferendis porro minima.
                         </Typography>
                         <Button className={classes.button} variant="contained">GET APPOINMENT</Button>
                         </Grid>
