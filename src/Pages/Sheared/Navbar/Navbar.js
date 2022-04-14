@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -93,7 +94,10 @@ const Navbar = () => {
                 >
                   
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">Product</Typography>
+                      <Link to="/">
+                      <Typography textAlign="center">Home</Typography>
+                      </Link>
+                      
                       
                     </MenuItem>
                     <MenuItem  onClick={handleCloseNavMenu}>
@@ -113,15 +117,21 @@ const Navbar = () => {
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Product</Typography>
+                      <Link to="/">
+                        <Typography textAlign="center">Home</Typography>
+                      </Link>
                   </Button>
               
                 
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Price</Typography>
+                      <Link to="/appointment">
+                         <Typography textAlign="center">Appointment</Typography>
+                      </Link>
                   </Button>
+
+                  
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}>
