@@ -7,6 +7,7 @@ import {
 import Home from './Pages/Home/Home/Home';
 import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
+import Reagister from './Pages/Login/Reagister/Reagister';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login/>} />
-          <Route path="appointment" element={<Appointment />} />
+          <Route path="/reagister" element={<Reagister/>} />
+          <Route path="/appointment" element={<Appointment />} />
         </Routes>
     </BrowserRouter>
     </div>

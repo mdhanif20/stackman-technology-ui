@@ -26,9 +26,7 @@ const useStyle = makeStyles({
         background: "linear-gradient(to right, #11D0DF 0%, #19D3AE 100%)"
     }
 })
-
-
-const Login = () => {
+const Reagister = () => {
     const classes = useStyle();
     const [user,setUser] = useState({});
     const onChangeField = e =>{
@@ -40,7 +38,10 @@ const Login = () => {
     }
     console.log(user)
     const loginAccount = e =>{
-
+        if(user.Password !== user.Password2){
+            alert("Password don't match")
+            return
+        }
         e.preventDefault()
     }
     return (
@@ -51,11 +52,13 @@ const Login = () => {
                        
                             <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 20px"}}}>
                                     <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
-                                            Login
+                                            Reagister
                                         </Typography>
                                 <form onSubmit={loginAccount}>
                                             <TextField 
-                                            sx={{width:{md:"75%",xs:1}}}id="standard-basic" 
+                                            sx={{width:{md:"75%",xs:1}}}
+                                            id="standard-basic"
+                                            type="Email"  
                                             name="Email"
                                             onChange={onChangeField}
                                             label="User Name"
@@ -68,10 +71,18 @@ const Login = () => {
                                             onChange={onChangeField}
                                             label="Password" 
                                             variant="standard" 
+                                            /> <br /> <br /> 
+                                            <TextField 
+                                            sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
+                                            type="password" 
+                                            name="Password2"
+                                            onChange={onChangeField}
+                                            label="Re-type Password" 
+                                            variant="standard" 
                                             /> <br /> <br /> <br />
-                                            <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Sign In</Button> <br /> <br />
-                                            <Link style={{textDecoration:"none"}} to={"/reagister"}>
-                                             <Button variant="text">New User? Please Reagister</Button>
+                                            <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Reagister</Button> <br /> <br />
+                                            <Link style={{textDecoration:"none"}} to={"/login"}>
+                                             <Button variant="text">Already Reagistered? Please Login</Button>
                                             </Link>
                                  </form>
                                         
@@ -87,4 +98,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Reagister;
