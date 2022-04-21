@@ -61,7 +61,7 @@ const Reagister = () => {
                                             type="Email"  
                                             name="Email"
                                             onChange={onChangeField}
-                                            label="User Name"
+                                            label="Email"
                                              variant="standard" 
                                              /> <br /> <br /> 
                                             <TextField 
