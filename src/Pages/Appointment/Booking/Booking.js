@@ -14,7 +14,7 @@ const useStyle = makeStyles({
 })
 
 
-const Booking = ({booking,date}) => {
+const Booking = ({booking,date,setBookingSuccess}) => {
     const classes = useStyle();
     const { name,time,space} = booking;
     const [openBooking, setOpenBooking] = React.useState(false);
@@ -39,6 +39,7 @@ const Booking = ({booking,date}) => {
             <BookingModal
             booking = {booking}
             openBooking={openBooking}
+            setBookingSuccess={setBookingSuccess}
             handleBookingClose={handleBookingClose}
             date={date.toDateString()}
             ></BookingModal>

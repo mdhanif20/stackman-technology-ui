@@ -12,15 +12,23 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import useAuth from './../../Hooks/useAuth';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 const Navbar = () => {
+    const {users,logOut} = useAuth();
+    const logOutEmail = () =>{
+      const sure = window.confirm("Are You Sure? You Want To log Out.");
+      if(sure){
+        logOut();
+      }
+    }
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-  
+     
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
     };
@@ -135,10 +143,24 @@ const Navbar = () => {
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}>
-                      <Link style={{textDecoration:"none",color:"#fff"}} to="/login">
-                         <Typography textAlign="center">Login</Typography>
-                      </Link>
+                      {
+                        users?.email?
+                        <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
+                        :
+                     <Link style={{textDecoration:"none",color:"#fff"}} to="/login">
+                        <Typography textAlign="center">Login</Typography>
+                     </Link>
+                      }
                   </Button>
+                      {
+                        users?.email && <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'white', display: 'block' }}>
+                          <Link style={{textDecoration:"none",color:"#fff"}} to="/deshboard">
+                            <Typography textAlign="center">DeshBoard</Typography>
+                          </Link>
+                      </Button>
+                      }
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}>

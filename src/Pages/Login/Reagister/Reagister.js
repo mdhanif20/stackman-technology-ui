@@ -7,7 +7,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from './../../Hooks/useAuth';
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Navbar from './../../Sheared/Navbar/Navbar';
+import FooterHome from './../../Home/FooterHome/FooterHome';
 
 const useStyle = makeStyles({
     image:{
@@ -27,9 +33,12 @@ const useStyle = makeStyles({
     }
 })
 const Reagister = () => {
+    const {users,authError,registerUser,isLoading} = useAuth();
+    console.log(users)
     const classes = useStyle();
     const [user,setUser] = useState({});
-    const onChangeField = e =>{
+    const navigate = useNavigate();
+    const onChangeBlur = e =>{
         const field = e.target.name;
         const value= e.target.value;
         const newUser = {...user};
@@ -42,59 +51,91 @@ const Reagister = () => {
             alert("Password don't match")
             return
         }
+        else{
+            registerUser(user.Email,user.Password,user.name)
+            navigate("/appointment")
+        }
+        
         e.preventDefault()
     }
     return (
-        <Container>
-            <Box sx={{py:10}}>
+       <Box>
+           <Box sx={{backgroundColor:"#24262f"}}>
+                <Navbar></Navbar>
+          </Box>
+            <Container>
+        <Box sx={{py:10}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                       
-                            <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 20px"}}}>
-                                    <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
-                                            Reagister
-                                        </Typography>
-                                <form onSubmit={loginAccount}>
-                                            <TextField 
-                                            sx={{width:{md:"75%",xs:1}}}
-                                            id="standard-basic"
-                                            type="Email"  
-                                            name="Email"
-                                            onChange={onChangeField}
-                                            label="Email"
-                                             variant="standard" 
-                                             /> <br /> <br /> 
-                                            <TextField 
-                                            sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
-                                            type="password" 
-                                            name="Password"
-                                            onChange={onChangeField}
-                                            label="Password" 
-                                            variant="standard" 
-                                            /> <br /> <br /> 
-                                            <TextField 
-                                            sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
-                                            type="password" 
-                                            name="Password2"
-                                            onChange={onChangeField}
-                                            label="Re-type Password" 
-                                            variant="standard" 
-                                            /> <br /> <br /> <br />
-                                            <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Reagister</Button> <br /> <br />
-                                            <Link style={{textDecoration:"none"}} to={"/login"}>
-                                             <Button variant="text">Already Reagistered? Please Login</Button>
-                                            </Link>
-                                 </form>
-                                        
-                            </Box>
+                    
+                    <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 20px"}}}>
+                    <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
+                            Reagister
+                        </Typography>
+
+                { !isLoading &&  <form onSubmit={loginAccount}>
+                            <TextField 
+                            sx={{width:{md:"75%",xs:1}}}
+                            id="standard-basic"
+                            type="Name"  
+                            name="Name"
+                            onBlur={onChangeBlur}
+                            label="Your Name"
+                                variant="standard" 
+                                /> <br /> <br /> 
+                            <TextField 
+                            sx={{width:{md:"75%",xs:1}}}
+                            id="standard-basic"
+                            type="Email"  
+                            name="Email"
+                            onBlur={onChangeBlur}
+                            label="Email"
+                                variant="standard" 
+                                /> <br /> <br /> 
+                            <TextField 
+                            sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
+                            type="password" 
+                            name="Password"
+                            onBlur={onChangeBlur}
+                            label="Password" 
+                            variant="standard" 
+                            /> <br /> <br /> 
+                            <TextField 
+                            sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
+                            type="password" 
+                            name="Password2"
+                            onBlur={onChangeBlur}
+                            label="Re-type Password" 
+                            variant="standard" 
+                            /> <br /> <br /> <br />
+                            <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Reagister</Button> <br /> <br />
+                            <Link style={{textDecoration:"none"}} to={"/login"}>
+                                <Button variant="text">Already Reagistered? Please Login</Button>
+                            </Link>
+                    </form>
+                }
+                {isLoading && <CircularProgress />}
+                {users?.email && <Alert severity="success">Reagister Successfully.</Alert>}
+                {
+                    authError && <Alert severity="error">
+                    <AlertTitle>Error</AlertTitle>
+                    {authError}
+                </Alert>
+                }
+            </Box>
+
                         
                     </Grid>
                     <Grid sx={{display:{md:"block",xs:"none"}}} item xs={12} md={6}>
                         <img className={classes.image} src={img} alt="" />
                     </Grid>
                 </Grid>
-            </Box>
+        </Box>
         </Container>
+        <Box sx={{bgcolor:"#0f0c0b",boxShadow: "1px 12px 12px 14px #24262f",color:"#fff"}}>
+            <FooterHome></FooterHome>
+        </Box>
+       </Box>
     );
 };
 

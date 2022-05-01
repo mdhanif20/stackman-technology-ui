@@ -9,6 +9,8 @@ import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
 import Reagister from './Pages/Login/Reagister/Reagister';
 import AuthProvider from './Pages/Contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
+import Deshboard from './Pages/Deshboard/Deshboard/Deshboard';
 
 
 function App() {
@@ -20,8 +22,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login/>} />
+              <Route path="/deshboard" element={<Deshboard/>} />
               <Route path="/reagister" element={<Reagister/>} />
-              <Route path="/appointment" element={<Appointment />} />
+              <Route path="/*" element={<PrivateRoute/>}>
+                  <Route path="appointment" element={<Appointment/>}/>
+              </Route>
             </Routes>
         </BrowserRouter>
      </AuthProvider>

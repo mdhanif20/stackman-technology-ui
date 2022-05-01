@@ -7,7 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from './../../Hooks/useAuth';
+import Navbar from '../../Sheared/Navbar/Navbar';
+import FooterHome from '../../Home/FooterHome/FooterHome';
+import GoogleIcon from '@mui/icons-material/Google';
 
 const useStyle = makeStyles({
     image:{
@@ -30,7 +34,10 @@ const useStyle = makeStyles({
 
 const Login = () => {
     const classes = useStyle();
+    const {users,singnInUser,signInWithGoogle} = useAuth();
     const [user,setUser] = useState({});
+    const navigate = useNavigate(); 
+    
     const onChangeField = e =>{
         const field = e.target.name;
         const value= e.target.value;
@@ -38,13 +45,23 @@ const Login = () => {
         newUser[field]=value
         setUser(newUser)
     }
-    console.log(user)
+    const googleSignIn = e =>{
+        signInWithGoogle()
+        navigate("/appointment") 
+    }
     const loginAccount = e =>{
-
+    singnInUser(user.Email,user.Password)
+    navigate("/appointment") 
         e.preventDefault()
     }
+   
     return (
-        <Container>
+      <Box>
+          <Box sx={{backgroundColor:"#24262f"}}>
+                <Navbar></Navbar>
+          </Box>
+          
+            <Container>
             <Box sx={{py:10}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
@@ -53,7 +70,7 @@ const Login = () => {
                     <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
                             Login
                         </Typography>
-                <form onSubmit={loginAccount}>
+                <form  onSubmit={loginAccount} >
                             <TextField 
                             sx={{width:{md:"75%",xs:1}}}id="standard-basic" 
                             name="Email"
@@ -69,12 +86,15 @@ const Login = () => {
                             label="Password" 
                             variant="standard" 
                             /> <br /> <br /> <br />
-                            <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Sign In</Button> <br /> <br />
-                            <Link style={{textDecoration:"none"}} to={"/reagister"}>
+                            <Button   sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Sign In</Button> 
+                            
+                    </form>
+                    <br /> 
+                        <Button   sx={{ color:"#fff",width:{md:"75%",xs:1}}} onClick={()=>googleSignIn()} type="submit" className={classes.fieldButton}><GoogleIcon/>Google Sign In</Button> <br /> <br />
+
+                        <Link style={{textDecoration:"none"}} to={"/reagister"}>
                                 <Button variant="text">New User? Please Reagister</Button>
                             </Link>
-                    </form>
-                            
                 </Box>
                         
                     </Grid>
@@ -84,6 +104,10 @@ const Login = () => {
                 </Grid>
             </Box>
         </Container>
+        <Box sx={{bgcolor:"#0f0c0b",boxShadow: "1px 12px 12px 14px #24262f",color:"#fff"}}>
+            <FooterHome></FooterHome>
+        </Box>
+      </Box>
     );
 };
 
