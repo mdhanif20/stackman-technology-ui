@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import bg from "../../../images/appointment-bg.png";
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import ContactForm from './ContactForm';
 
 const useStyle = makeStyles({

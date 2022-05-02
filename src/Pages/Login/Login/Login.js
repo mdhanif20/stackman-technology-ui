@@ -66,7 +66,7 @@ const Login = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
                        
-                <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 20px"}}}>
+                <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 10px"}}}>
                     <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
                             Login
                         </Typography>

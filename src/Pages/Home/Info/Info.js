@@ -55,8 +55,11 @@ const Info = () => {
                                 <Typography sx={{fontSize:"20px"}} variant="subtitle2" gutterBottom component="div">
                                     Opening Hours
                                 </Typography>
-                                <Typography  variant="body2" display="block" gutterBottom>
+                                <Typography  variant="body2" sx={{display:{xs:"none",sm:"block"}}} gutterBottom>
                                     Lorem, ipsum dolor sit <br /> amet consectetur adip.
+                                </Typography>
+                                <Typography  variant="body2"  sx={{display:{xs:"block",sm:"none"}}} display="block" gutterBottom>
+                                    Lorem, ipsum<br /> amet consectetur.
                                 </Typography>
                             </Box>
                    </Box>
