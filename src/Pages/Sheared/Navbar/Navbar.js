@@ -102,19 +102,48 @@ const Navbar = () => {
                 >
                   
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Link to="/">
-                      <Typography textAlign="center">Home</Typography>
+                       <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/home">
+                        <Typography textAlign="center">Home</Typography>
                       </Link>
-                      
-                      
                     </MenuItem>
+
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">Price</Typography>
-                      
+                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/appointment">
+                         <Typography textAlign="center">Appointment</Typography>
+                      </Link>
                     </MenuItem>
+
+                    <MenuItem  onClick={handleCloseNavMenu}>
+                    {
+                        users?.email?
+                        <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
+                        :
+                     <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/login">
+                        <Typography textAlign="center">Login</Typography>
+                     </Link>
+                      }
+                    </MenuItem>
+
+                    <MenuItem  onClick={handleCloseNavMenu}>
+                      {
+                        users?.email && <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'white', display: 'block' }}>
+                          <Link style={{textDecoration:"none",color:"#fff"}} to="/deshboard">
+                            <Typography textAlign="center">DeshBoard</Typography>
+                          </Link>
+                      </Button>
+                      }
+                    </MenuItem>
+
+                    <MenuItem  onClick={handleCloseNavMenu}>
+                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/home">
+                        <Typography textAlign="center">Home</Typography>
+                      </Link>
+                    </MenuItem>
+
                     <MenuItem  onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">Blog</Typography>
-                      
                     </MenuItem>
                   
                 </Menu>
