@@ -42,12 +42,13 @@ const ContactForm = () => {
         emailjs.sendForm('service_64fo5li', 'template_k82qf6c', e.target, 'sEIjvaT255FOB530n')
         .then((res) => {
             alert("Email Send Successfully.")
+            form.current.reset(); 
         }).catch(err => console.log(err));
     }
     return (
         <Container sx={{textAlign:"center"}}>
             <Box sx={{width:{xs:"94%",md:"50%"},margin:"auto"}}>
-                <form onSubmit={sendEmail}>
+                <form ref={form} onSubmit={sendEmail}>
                     <input type="email" name="user_email" className={classes.input} placeholder='Email Address' /> <br />
                     <input type="text" name="user_name" className={classes.input} placeholder='Subject' /> <br />
                     <textarea name="message" className={classes.textArea} id="" placeholder='Your Message'></textarea> <br />

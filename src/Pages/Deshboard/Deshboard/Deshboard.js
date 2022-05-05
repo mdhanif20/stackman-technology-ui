@@ -3,8 +3,7 @@ import Box from '@mui/material/Box';
 import Navbar from '../../Sheared/Navbar/Navbar';
 import FooterHome from '../../Home/FooterHome/FooterHome';
 import LeftSideBar from '../../Sheared/DeshAndAdminBoard/LeftSideBar';
-import ClientInfo from './ClientInfo';
-import { Container } from '@mui/material';
+import ClientInfo from './ClientInfo/ClientInfo';
 
 
 const Deshboard = () => {

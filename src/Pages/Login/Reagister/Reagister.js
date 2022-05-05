@@ -33,7 +33,6 @@ const useStyle = makeStyles({
 })
 const Reagister = () => {
     const {users,authError,registerUser,isLoading} = useAuth();
-    console.log(users)
     const classes = useStyle();
     const [user,setUser] = useState({});
     const navigate = useNavigate();
@@ -44,14 +43,13 @@ const Reagister = () => {
         newUser[field]=value
         setUser(newUser)
     }
-    console.log(user)
     const loginAccount = e =>{
-        if(user.Password !== user.Password2){
+        if(user.password !== user.password2){
             alert("Password don't match")
             return
         }
         else{
-            registerUser(user.Email,user.Password,user.name)
+            registerUser(user.email,user.password,user.name)
             navigate("/appointment")
         }
         
@@ -77,7 +75,7 @@ const Reagister = () => {
                             sx={{width:{md:"75%",xs:1}}}
                             id="standard-basic"
                             type="Name"  
-                            name="Name"
+                            name="name"
                             onBlur={onChangeBlur}
                             label="Your Name"
                                 variant="standard" 
@@ -86,7 +84,7 @@ const Reagister = () => {
                             sx={{width:{md:"75%",xs:1}}}
                             id="standard-basic"
                             type="Email"  
-                            name="Email"
+                            name="email"
                             onBlur={onChangeBlur}
                             label="Email"
                                 variant="standard" 
@@ -94,7 +92,7 @@ const Reagister = () => {
                             <TextField 
                             sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
                             type="password" 
-                            name="Password"
+                            name="password"
                             onBlur={onChangeBlur}
                             label="Password" 
                             variant="standard" 
@@ -102,7 +100,7 @@ const Reagister = () => {
                             <TextField 
                             sx={{width:{md:"75%",xs:1}}} id="standard-basic" 
                             type="password" 
-                            name="Password2"
+                            name="password2"
                             onBlur={onChangeBlur}
                             label="Re-type Password" 
                             variant="standard" 

@@ -126,13 +126,11 @@ const Navbar = () => {
 
                     <MenuItem  onClick={handleCloseNavMenu}>
                       {
-                        users?.email && <Button
-                        onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'white', display: 'block' }}>
-                          <Link style={{textDecoration:"none",color:"#fff"}} to="/deshboard">
+                        users?.email && 
+                          <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/deshboard">
                             <Typography textAlign="center">DeshBoard</Typography>
                           </Link>
-                      </Button>
+                     
                       }
                     </MenuItem>
 

@@ -24,9 +24,9 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
     const {name,time} = booking;
     const {users} = useAuth();
     const {displayName,email} = users;
-    const defaultInfo = {Name: displayName, Email: email, Phone:""}
+    const defaultInfo = {name: displayName, email: email, phone:""}
     const [bookingInfo,setBookingInfo] = useState(defaultInfo); 
-
+  
     const handleOnBlur = e =>{
         const field = e.target.name;
         const value = e.target.value;
@@ -58,11 +58,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
           }, 18000);
           handleBookingClose();
         }
-        console.log(data)
       })
-
-      
-      // e.preventDefault();
     }
    
 
@@ -102,7 +98,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
                 required
                 sx={{width:"100%",my:2}}
                 label="Phone"
-                name="Phone"
+                name="phone"
                 onBlur={handleOnBlur}
                 id="outlined-size-small"
                 defaultValue="+8801"
@@ -111,7 +107,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
                 <TextField
                 sx={{width:"100%",my:2}}
                 label="Email"
-                name="Email"
+                name="email"
                 onBlur={handleOnBlur}
                 id="outlined-size-small"
                 defaultValue={email}
