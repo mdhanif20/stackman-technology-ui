@@ -14,11 +14,11 @@ const Deshboard = () => {
             </Box>
            <Box>
            <Box sx={{margin:{xs:"0px",sm:"50px"},display:"flex",boxShadow: "0px 1px 3px #c4bdbd;"}}>
-                <Box sx={{}}>
+                <Box sx={{zIndex:2}}>
                     <LeftSideBar></LeftSideBar>
                 </Box>
-                <Box>
-                <ClientInfo></ClientInfo>
+                <Box sx={{zIndex:1}}>
+                    <ClientInfo></ClientInfo>
                 </Box>
             </Box>
            </Box>

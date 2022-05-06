@@ -24,7 +24,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
     const {name,time} = booking;
     const {users} = useAuth();
     const {displayName,email} = users;
-    const defaultInfo = {name: displayName, email: email, phone:""}
+    const defaultInfo = {Name: displayName, email: email, phone:""}
     const [bookingInfo,setBookingInfo] = useState(defaultInfo); 
   
     const handleOnBlur = e =>{
@@ -61,9 +61,6 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
       })
     }
    
-
-    
-
     return (
         <Modal
         open={openBooking}
