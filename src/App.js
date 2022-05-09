@@ -11,6 +11,9 @@ import Reagister from './Pages/Login/Reagister/Reagister';
 import AuthProvider from './Pages/Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
 import Deshboard from './Pages/Deshboard/Deshboard/Deshboard';
+import ClientInfo from './Pages/Deshboard/Deshboard/ClientInfo/ClientInfo';
+import Patients from './Pages/Deshboard/Patients/Patients';
+import MakeAdmin from './Pages/Deshboard/AdminPanel/MakeAdmin/MakeAdmin';
 
 
 function App() {
@@ -22,7 +25,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login/>} />
-              <Route path="/deshboard" element={<Deshboard/>} />
+              <Route path="/deshboard/*" element={<Deshboard/>}> 
+                  <Route path="clientdata" element={<ClientInfo/>}/>
+                  <Route path="patients" element={<Patients/>}/>
+                  <Route path="makeadmin" element={<MakeAdmin/>}/>
+              </Route>
               <Route path="/reagister" element={<Reagister/>} />
               <Route path="/*" element={<PrivateRoute/>}>
                   <Route path="appointment" element={<Appointment/>}/>

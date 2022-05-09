@@ -1,13 +1,17 @@
-import { Apps, Camera, Collections, Home, List, Logout, Person, Settings, Storefront, VideoCall} from '@mui/icons-material';
+import { Logout, Settings} from '@mui/icons-material';
 import AppsIcon from '@mui/icons-material/Apps';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'; 
 import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import useAuth from './../../Hooks/useAuth';
+
 
 const useStyle = makeStyles({
     container:{
@@ -32,6 +36,11 @@ const useStyle = makeStyles({
         fontWeight:800,
         fontSize:"1.1rem"
     },
+    linkDesign:{
+        textDecoration:"none",
+        color:"#fff"
+    }
+    ,
     containerSmall:{
         padding:"20px 5px", 
         paddingBottom:".09px",
@@ -71,22 +80,44 @@ const useStyle = makeStyles({
 
 const LeftSideBar = () => {
     const classes = useStyle();
+    const {admin} = useAuth();
+    console.log(admin)
     return (
-        <Box>
+        <Box sx={{display:"flex"}}>
             <Box sx={{display:{xs:"none",sm:"block"}}}>
                     <Container sx={{  bgcolor:"#0f0c0b",width:"200px"}} className={classes.container}>
+
+                    <Link className={classes.linkDesign} to="/deshboard/clientdata">
                     <div className={classes.item}>
                         <AppsIcon style={{fontSize:"30px"}} className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Deshboard</Typography>
+                            <Typography style={{fontWeight:500}} className={classes.text}>Deshboard</Typography>
                     </div>
+                    </Link>
+
+                    <Link className={classes.linkDesign} to="/deshboard/patients">
                     <div className={classes.item}>
                         <CalendarTodayIcon style={{fontSize:"30px"}} className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Appointment</Typography>
+                          <Typography style={{fontWeight:500}} className={classes.text}>Appointment</Typography>   
                     </div>
+                    </Link>
+
                     <div className={classes.item}>
                         <PeopleIcon style={{fontSize:"30px"}}  className={classes.icon}/>
                         <Typography style={{fontWeight:500}} className={classes.text}>Patients</Typography>
                     </div>
+                   {
+                        
+                    admin && <Link className={classes.linkDesign} to="/deshboard/makeadmin">
+                  <div className={classes.item}>
+                      <ManageAccountsIcon style={{fontSize:"30px"}}  className={classes.icon}/>
+                      <Typography style={{fontWeight:500}} className={classes.text}>Make Admin</Typography>
+                  </div>
+                  </Link>
+
+                   }
+                      
+
+
                     <div className={classes.item}>
                         <AssignmentIcon style={{fontSize:"30px"}}  className={classes.icon}/>
                         <Typography style={{fontWeight:500}} className={classes.text}>Prescription</Typography>
@@ -131,7 +162,7 @@ const LeftSideBar = () => {
                     </div>
                 </Container>
             </Box>
-            
+            <Outlet/>
         </Box>
        
         

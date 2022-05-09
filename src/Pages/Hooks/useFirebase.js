@@ -8,6 +8,7 @@ firebaseInitialization();
 const useFirebase = () =>{
     const [isLoading,setIsLoading] = useState(true);
     const [users,setUser] = useState({});
+    const [admin,setAdmin] = useState(false);
     const [ authError, setError] = useState("");
     const googleProvider = new GoogleAuthProvider();
 
@@ -29,6 +30,7 @@ const useFirebase = () =>{
       signInWithPopup(auth, googleProvider)
         .then((result) => {
           const user = result.user;
+          saveUser(user.email,user.displayName,"PUT")
         }).catch((error) => {
           setError(error.message)
         })
@@ -43,6 +45,8 @@ const useFirebase = () =>{
           const newUser = {email, displayName:name};
           //send name to firebase after creation
           setUser(newUser)
+          //save the user on database
+          saveUser(email,name,"POST")
           updateProfile(auth.currentUser, {
             displayName: name
           }).then(() => {
@@ -54,9 +58,21 @@ const useFirebase = () =>{
           })
           .finally(()=>setIsLoading(false))
     }
+  //save user on database
+  const saveUser = (email,displayname,method)=>{
+    const user = {email, displayname};
+    fetch('http://localhost:5000/users',{
+      method:method,
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
  //observe user state
-    useEffect(()=>{
-      
+    useEffect(()=>{ 
        const unsubscribe =  onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
@@ -67,6 +83,19 @@ const useFirebase = () =>{
           });
           return () => unsubscribe;
     },[])
+
+
+    //admin panel login
+    useEffect(()=>{
+      
+      const url = `http://localhost:5000/users/${users.email}`;
+      fetch(url)
+      .then(res=>res.json())
+      .then(data => setAdmin(data.admin))
+
+    },[users])
+
+
     const logOut = () =>{
         setIsLoading(true);
         signOut(auth).then(() => {
@@ -80,6 +109,7 @@ const useFirebase = () =>{
         users,
         isLoading,
         authError ,
+        admin,
         registerUser,
         logOut,
         singnInUser,
