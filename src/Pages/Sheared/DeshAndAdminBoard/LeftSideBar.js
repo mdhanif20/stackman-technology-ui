@@ -81,36 +81,36 @@ const useStyle = makeStyles({
 const LeftSideBar = () => {
     const classes = useStyle();
     const {admin} = useAuth();
-    console.log(admin)
+
     return (
         <Box sx={{display:"flex"}}>
             <Box sx={{display:{xs:"none",sm:"block"}}}>
                     <Container sx={{  bgcolor:"#0f0c0b",width:"200px"}} className={classes.container}>
 
-                    <Link className={classes.linkDesign} to="/deshboard/clientdata">
+                    <Link className={classes.linkDesign} to="/deshboard">
                     <div className={classes.item}>
                         <AppsIcon style={{fontSize:"30px"}} className={classes.icon}/>
-                            <Typography style={{fontWeight:500}} className={classes.text}>Deshboard</Typography>
+                            <Typography style={{fontWeight:400}} className={classes.text}>Deshboard</Typography>
                     </div>
                     </Link>
 
-                    <Link className={classes.linkDesign} to="/deshboard/patients">
+                    <Link className={classes.linkDesign} to="/deshboard/allAppointment">
                     <div className={classes.item}>
                         <CalendarTodayIcon style={{fontSize:"30px"}} className={classes.icon}/>
-                          <Typography style={{fontWeight:500}} className={classes.text}>Appointment</Typography>   
+                          <Typography style={{fontWeight:400}} className={classes.text}>Appointment</Typography>   
                     </div>
                     </Link>
 
                     <div className={classes.item}>
                         <PeopleIcon style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Patients</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.text}>Patients</Typography>
                     </div>
                    {
                         
                     admin && <Link className={classes.linkDesign} to="/deshboard/makeadmin">
                   <div className={classes.item}>
                       <ManageAccountsIcon style={{fontSize:"30px"}}  className={classes.icon}/>
-                      <Typography style={{fontWeight:500}} className={classes.text}>Make Admin</Typography>
+                      <Typography style={{fontWeight:400}} className={classes.text}>Make Admin</Typography>
                   </div>
                   </Link>
 
@@ -120,16 +120,16 @@ const LeftSideBar = () => {
 
                     <div className={classes.item}>
                         <AssignmentIcon style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Prescription</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.text}>Prescription</Typography>
                     </div>
                    
                     <div className={classes.item}>
                         <Settings style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Settings</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.text}>Settings</Typography>
                     </div>
                     <div className={classes.item}>
                         <Logout style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:500}} className={classes.text}>Logout</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.text}>Logout</Typography>
                     </div>
                 </Container>
             </Box>
@@ -138,27 +138,27 @@ const LeftSideBar = () => {
                     <Container sx={{ bgcolor:"#0f0c0b",width:"34px"}} className={classes.containerSmall}>
                     <div className={classes.itemSmall}>
                         <AppsIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}} className={classes.textSmall}>Deshboard</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Deshboard</Typography>
                     </div>
                     <div className={classes.itemSmall}>
                         <CalendarTodayIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}} className={classes.textSmall}>Appointment</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Appointment</Typography>
                     </div>
                     <div className={classes.itemSmall}>
                         <PeopleIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}} className={classes.textSmall}>Patients</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Patients</Typography>
                     </div>
                     <div className={classes.itemSmall}>
                         <AssignmentIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}} className={classes.textSmall}>Prescription</Typography>
+                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Prescription</Typography>
                     </div>
                     <div className={classes.itemSmall}>
                         <Settings style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}}  className={classes.textSmall}>Settings</Typography>
+                        <Typography style={{fontWeight:400}}  className={classes.textSmall}>Settings</Typography>
                     </div>
                     <div className={classes.itemSmall}>
                         <Logout style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:500}}  className={classes.textSmall}>Logout</Typography>
+                        <Typography style={{fontWeight:400}}  className={classes.textSmall}>Logout</Typography>
                     </div>
                 </Container>
             </Box>

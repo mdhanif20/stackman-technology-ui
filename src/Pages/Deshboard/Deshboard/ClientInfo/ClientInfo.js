@@ -10,7 +10,7 @@ const ClientInfo = () => {
     return (
         <Box sx={{p:{xs:1, sm:2}}}>
             <Typography sx={{fontWeight:700,textAlign:"start",pt:{xs:4,sm:0}}} variant="h5" gutterBottom component="div">
-                Appointment
+               Your Appointment
             </Typography>
             <Grid container spacing={2}>
                 <Grid item sx={{paddingLeft:"0"}} sm={12} md={6}>

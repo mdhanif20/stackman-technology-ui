@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import useAuth from './../../../Hooks/useAuth';
 
 const useStyle = makeStyles({
     input:{
@@ -31,7 +32,7 @@ const useStyle = makeStyles({
 const MakeAdmin = () => {
     const classes = useStyle();
     const [admin,setAdmin] = useState({role:"admin"});
-    console.log(admin)
+    const {token} = useAuth();
     const handleOnBulre = e =>{
         const field = e.target.name;
         const value = e.target.value;
@@ -45,6 +46,7 @@ const MakeAdmin = () => {
         fetch("http://localhost:5000/users/admin",{
             method:"PUT",
             headers:{
+                'authorization':`Bearer ${token}`,
                 'content-type':'application/json'
             },
             body:JSON.stringify(admin)
@@ -52,9 +54,8 @@ const MakeAdmin = () => {
         .then(res => res.json())
         .then(data => {
             if(data.acknowledged){
-                alert("Added New Admin");
+                alert("Added New Admin Successfully.");
                 document.getElementById("adminpanel").reset();
-                console.log(data)
             }
         })
         e.preventDefault()

@@ -43,7 +43,7 @@ const ContactForm = () => {
         .then((res) => {
             alert("Email Send Successfully.")
             form.current.reset(); 
-        }).catch(err => console.log(err));
+        }).catch(err => alert(err));
     }
     return (
         <Container sx={{textAlign:"center"}}>

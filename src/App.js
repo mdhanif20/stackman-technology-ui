@@ -9,11 +9,13 @@ import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
 import Reagister from './Pages/Login/Reagister/Reagister';
 import AuthProvider from './Pages/Contexts/AuthProvider/AuthProvider';
-import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
 import Deshboard from './Pages/Deshboard/Deshboard/Deshboard';
 import ClientInfo from './Pages/Deshboard/Deshboard/ClientInfo/ClientInfo';
 import Patients from './Pages/Deshboard/Patients/Patients';
+import PrivateRoute from './Pages/ReactRoute/PrivateRoute/PrivateRoute';
+import AdminRoute from './Pages/ReactRoute/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Deshboard/AdminPanel/MakeAdmin/MakeAdmin';
+import AllAppointment from './Pages/Deshboard/PatientDetails.js/AllAppointment';
 
 
 function App() {
@@ -26,9 +28,12 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login/>} />
               <Route path="/deshboard/*" element={<Deshboard/>}> 
-                  <Route path="clientdata" element={<ClientInfo/>}/>
-                  <Route path="patients" element={<Patients/>}/>
-                  <Route path="makeadmin" element={<MakeAdmin/>}/>
+                <Route path="patients" element={<Patients/>}/>
+                <Route path="allAppointment" element={<AllAppointment/>}/>
+                <Route path="*" element={<ClientInfo/>}/>
+                  <Route path="*" element={<AdminRoute/>}>
+                    <Route path="makeadmin" element={<MakeAdmin/>}/>
+                  </Route>
               </Route>
               <Route path="/reagister" element={<Reagister/>} />
               <Route path="/*" element={<PrivateRoute/>}>

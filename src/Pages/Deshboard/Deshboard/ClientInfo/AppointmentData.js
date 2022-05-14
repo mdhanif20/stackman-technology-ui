@@ -6,7 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
+import HandleVisited from './../HandleVisited/HandleVisited';
 
+console.log(HandleVisited)
 
 const useStyle = makeStyles({
   button:{
