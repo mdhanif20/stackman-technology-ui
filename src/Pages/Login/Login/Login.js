@@ -93,7 +93,7 @@ const Login = () => {
                         <Button   sx={{ color:"#fff",width:{md:"75%",xs:1}}} onClick={()=>googleSignIn()} type="submit" className={classes.fieldButton}><GoogleIcon/>Google Sign In</Button> <br /> <br />
 
                         <Link style={{textDecoration:"none"}} to={"/reagister"}>
-                                <Button variant="text">New User? Please Reagister</Button>
+                                <Button variant="text">New User? Please Register</Button>
                             </Link>
                 </Box>
                         

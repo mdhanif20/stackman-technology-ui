@@ -67,7 +67,7 @@ const Reagister = () => {
                     
                     <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 10px"}}}>
                     <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
-                            Reagister
+                            Register
                         </Typography>
 
                 { !isLoading &&  <form onSubmit={loginAccount}>
@@ -107,7 +107,7 @@ const Reagister = () => {
                             /> <br /> <br /> <br />
                             <Button sx={{ color:"#fff",width:{md:"75%",xs:1}}} type="submit" className={classes.fieldButton}>Reagister</Button> <br /> <br />
                             <Link style={{textDecoration:"none"}} to={"/login"}>
-                                <Button variant="text">Already Reagistered? Please Login</Button>
+                                <Button variant="text">Already Registered? Please Login</Button>
                             </Link>
                     </form>
                 }
