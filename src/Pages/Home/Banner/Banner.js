@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link} from 'react-router-dom';
 
 const useStyle = makeStyles({
     background:{
@@ -66,7 +67,10 @@ const Banner = () => {
                         <Typography sx={{pb:2}} variant="caption" display="block" gutterBottom>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Et iste saepe tempora officia laborum aliquam adipisci <br />perferendis porro minima. Et iste saepe tempora <br /> officia laborum aliquam adipisci perferendis porro minima.
                         </Typography>
+                        <Link style={{textDecoration:"none"}} to="/appointment">
                         <Button className={classes.button} variant="contained">GET APPOINMENT</Button>
+                      </Link>
+                        
                         </Grid>
                         <Grid xs={12} md={6}>
                             <img  className={classes.bannerImage} src={image} alt="" />
