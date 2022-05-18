@@ -27,10 +27,7 @@ const Navbar = () => {
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
+    
     const handleCloseNavMenu = () => {
       setAnchorElNav(null);
     };
@@ -43,10 +40,7 @@ const Navbar = () => {
     return (
         <AppBar position="static" sx={{bgcolor:"transparent"}}>
           <Container maxWidth="xl">
-
             <Toolbar disableGutters>
-
-
               <Typography
                 variant="h6"
                 noWrap
@@ -109,17 +103,6 @@ const Navbar = () => {
                     </MenuItem>
 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                    {
-                        users?.email?
-                        <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
-                        :
-                     <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/login">
-                        <Typography textAlign="center">Login</Typography>
-                     </Link>
-                      }
-                    </MenuItem>
-
-                    <MenuItem  onClick={handleCloseNavMenu}>
                       {
                         users?.email && 
                           <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/deshboard">
@@ -130,23 +113,34 @@ const Navbar = () => {
                     </MenuItem>
 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/home">
-                        <Typography textAlign="center">Home</Typography>
+                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/contact">
+                         <Typography textAlign="center">Contact Us</Typography>
                       </Link>
                     </MenuItem>
 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">Blog</Typography>
+                    {
+                        users?.email?
+                        <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
+                        :
+                     <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/login">
+                        <Typography textAlign="center">Login</Typography>
+                     </Link>
+                      }
                     </MenuItem>
-                  
+
                 </Menu>
               </Box>
+
+
+
+
 
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },justifyContent: 'flex-end' }}>
                 
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
+                    sx={{ my: 2, color: '#0F0C0B', display: 'block' }}>
                       <Link style={{textDecoration:"none",color:"#fff"}} to="/home">
                         <Typography textAlign="center">Home</Typography>
                       </Link>
@@ -155,16 +149,31 @@ const Navbar = () => {
                 
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
+                    sx={{ my: 2, color: '#0F0C0B', display: 'block' }}>
                       <Link style={{textDecoration:"none",color:"#fff"}} to="/appointment">
                          <Typography textAlign="center">Appointment</Typography>
                       </Link>
                   </Button>
 
-                  
+                  {
+                        users?.email && <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: '#fff', display: 'block' }}>
+                          <Link style={{textDecoration:"none",color:"#fff"}} to="/deshboard">
+                            <Typography textAlign="center">DeshBoard</Typography>
+                          </Link>
+                      </Button>
+                  }
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
+                    sx={{ my: 2, color: '#fff', display: 'block' }}>
+                      <Link style={{textDecoration:"none",color:"#fff"}} to="/contact">
+                         <Typography textAlign="center">Contact Us</Typography>
+                      </Link>
+                  </Button>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: '#fff', display: 'block' }}>
                       {
                         users?.email?
                         <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
@@ -174,43 +183,8 @@ const Navbar = () => {
                      </Link>
                       }
                   </Button>
-                      {
-                        users?.email && <Button
-                        onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'white', display: 'block' }}>
-                          <Link style={{textDecoration:"none",color:"#fff"}} to="/deshboard">
-                            <Typography textAlign="center">DeshBoard</Typography>
-                          </Link>
-                      </Button>
-                      }
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Price</Typography>
-                  </Button>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Price</Typography>
-                  </Button>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Price</Typography>
-                  </Button>
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Price</Typography>
-                  </Button>
-              
-                
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}>
-                    <Typography textAlign="center">Blog</Typography>
-                  </Button>
-              
+                      
+                 
               </Box>
     
               <Box sx={{ flexGrow: 0 }}>
@@ -231,11 +205,6 @@ const Navbar = () => {
                   onClose={handleCloseUserMenu}
                 >
                   
-                    <MenuItem  onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">Product</Typography>
-                      <Typography textAlign="center">Price</Typography>
-                      <Typography textAlign="center">Blog</Typography>
-                    </MenuItem>
                 </Menu>
               </Box>
             </Toolbar>

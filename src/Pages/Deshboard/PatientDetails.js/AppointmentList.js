@@ -1,9 +1,9 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
 
 
 const AppointmentList = ({appointment,value,id}) => {
     const [visited ,setVisited] = useState(false);
-    const patientId = {id:appointment._id, visit:`${visited}`};
+    // const patientId = {id:appointment._id, visit:`${visited}`}; 
     const handleVisited = (appointmentId) =>{
         if(id===appointmentId){
                 setVisited(true) 
@@ -14,9 +14,9 @@ const AppointmentList = ({appointment,value,id}) => {
     }
 
 
-   useEffect(()=>{
+/*    useEffect(()=>{
            if(visited){
-            fetch('http://localhost:5000/deshboard/appointments',{
+            fetch('https://peaceful-bayou-32308.herokuapp.com/deshboard/appointments',{
                 method:"PUT",
                 headers:{
                 'content-type':'application/json'
@@ -26,7 +26,7 @@ const AppointmentList = ({appointment,value,id}) => {
                 .then(res => res.json())
                 .then(data =>console.log(data))
            }
-   },[visited])
+   },[visited]) */
    
 
    

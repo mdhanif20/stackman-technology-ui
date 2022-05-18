@@ -34,7 +34,7 @@ const useStyle = makeStyles({
 
 const Login = () => {
     const classes = useStyle();
-    const {users,singnInUser,signInWithGoogle} = useAuth();
+    const {singnInUser,signInWithGoogle} = useAuth();
     const [user,setUser] = useState({});
     const navigate = useNavigate(); 
     

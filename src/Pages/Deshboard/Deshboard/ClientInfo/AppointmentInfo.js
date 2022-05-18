@@ -5,12 +5,9 @@ import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper'; 
-import Button from '@mui/material/Button';
 import AppointmentData from './AppointmentData';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -23,34 +20,30 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-      border: 0,
-    },
-  })); 
   
 
 const AppointmentInfo = ({date}) => {
-    const {users} = useAuth(); 
+    const {users,token} = useAuth(); 
     const [appointments,setAppointments] = useState([]);
+    const DateLocal = new Date(date).toLocaleDateString();
 
     useEffect(()=>{
-        const url = `http://localhost:5000/appointments?email=${users.email}&date=${date}`;
-         fetch(url)
+        const url = `https://peaceful-bayou-32308.herokuapp.com/appointments?email=${users.email}&date=${DateLocal}`;
+         fetch(url,{
+           headers:{
+             'authorization':`Bearer ${token}`
+           }
+         })
         .then(res => res.json())
         .then(data => setAppointments(data))
-    },[date])
+    },[DateLocal,users.email,token])
     
     return (
         <Box sx={{ml:{xs:0,sm:2}}}>
             <Typography sx={{textAlign:"start",fontSize:"20px",fontWeight:"500",pb:2,ml:2}} variant="body1" gutterBottom>
                 Your Appointment History
             </Typography>
-      {/* <TableContainer component={Paper}>  */}
+ 
       <Table sx={{ minWidth:"90%"}} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -71,7 +64,7 @@ const AppointmentInfo = ({date}) => {
            
         </TableBody>
       </Table>
-    {/* </TableContainer>  */}
+
         </Box>
     );
 };

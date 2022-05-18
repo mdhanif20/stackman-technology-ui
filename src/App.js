@@ -16,6 +16,7 @@ import PrivateRoute from './Pages/ReactRoute/PrivateRoute/PrivateRoute';
 import AdminRoute from './Pages/ReactRoute/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Deshboard/AdminPanel/MakeAdmin/MakeAdmin';
 import AllAppointment from './Pages/Deshboard/PatientDetails.js/AllAppointment';
+import ContactUs from './Pages/Contact/ContactUs';
 
 
 function App() {
@@ -27,17 +28,19 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login/>} />
+              
               <Route path="/deshboard/*" element={<Deshboard/>}> 
-                <Route path="patients" element={<Patients/>}/>
-                <Route path="allAppointment" element={<AllAppointment/>}/>
+                <Route path="patients" element={<Patients/>}/>  
                 <Route path="*" element={<ClientInfo/>}/>
                   <Route path="*" element={<AdminRoute/>}>
+                  <Route path="allAppointment" element={<AllAppointment/>}/>
                     <Route path="makeadmin" element={<MakeAdmin/>}/>
                   </Route>
               </Route>
               <Route path="/reagister" element={<Reagister/>} />
               <Route path="/*" element={<PrivateRoute/>}>
                   <Route path="appointment" element={<Appointment/>}/>
+                  <Route path="contact" element={<ContactUs/>} />
               </Route>
             </Routes>
         </BrowserRouter>

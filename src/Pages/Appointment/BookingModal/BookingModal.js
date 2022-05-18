@@ -5,8 +5,7 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import useAuth from './../../Hooks/useAuth';
-import Appointment from './../Appointment/Appointment';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -53,7 +52,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
     }
 
     const bookingSubmit = e =>{
-        fetch("http://localhost:5000/appointments",{
+        fetch("https://peaceful-bayou-32308.herokuapp.com/appointments",{
         method:"POST",
         headers:{
           "content-type":"application/json"

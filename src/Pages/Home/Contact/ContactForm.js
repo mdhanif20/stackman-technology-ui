@@ -3,7 +3,8 @@ import Container from '@mui/material/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@mui/material/Box';
 import emailjs from '@emailjs/browser';
-
+import Button from '@mui/material/Button';
+import useAuth from './../../Hooks/useAuth';
 
 const useStyle = makeStyles({
     input:{
@@ -25,34 +26,41 @@ const useStyle = makeStyles({
     },
     submitButton:{
         fontSize: "23px",
-        padding: "12px 76px",
-        background: "linear-gradient(to right, #19D3AF, #10D0E9)",
+        padding: "7px 40px",
         border: "0px",
         borderRadius: "25px",
+        backgroundImage: "linear-gradient(to right, #19D3AE , #0FEFCB)",
         color: "#fff",
         cursor:"pointer",
-        fontWeight:" 500"
+        fontWeight:" 500",
+    },
+    button:{
+        backgroundImage: "linear-gradient(to right, #19D3AE , #0FEFCB)",
+        fontSize:"1.3rem",
     }
 })
 const ContactForm = () => {
     const classes = useStyle();
     const form = useRef();
+    const {users} = useAuth();
     const sendEmail = e =>{
         e.preventDefault()
         emailjs.sendForm('service_64fo5li', 'template_k82qf6c', e.target, 'sEIjvaT255FOB530n')
         .then((res) => {
             alert("Email Send Successfully.")
             form.current.reset(); 
-        }).catch(err => alert(err));
+        }).catch(err => console.log(err));
     }
     return (
         <Container sx={{textAlign:"center"}}>
-            <Box sx={{width:{xs:"94%",md:"50%"},margin:"auto"}}>
+            <Box sx={{width:{xs:"94%",md:"60%"},margin:"auto"}}>
                 <form ref={form} onSubmit={sendEmail}>
-                    <input type="email" name="user_email" className={classes.input} placeholder='Email Address' /> <br />
+                    <input type="email" name="user_email" className={classes.input} placeholder="Enter your email" /> <br />
                     <input type="text" name="user_name" className={classes.input} placeholder='Subject' /> <br />
                     <textarea name="message" className={classes.textArea} id="" placeholder='Your Message'></textarea> <br />
-                    <input className={classes.submitButton} type="submit" value="Submit"/>
+                    <Button  className={classes.button} variant="contained">
+                    <input className={classes.submitButton} type="submit" value="Send"/>
+                    </Button>
                 </form>
             </Box>
         </Container>

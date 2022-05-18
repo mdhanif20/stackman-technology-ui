@@ -12,7 +12,7 @@ const Deshboard = () => {
             </Box>
            <Box>
            <Box sx={{margin:{xs:"0px",sm:"50px"},display:"flex",boxShadow: "0px 1px 3px #c4bdbd;"}}>
-           <LeftSideBar></LeftSideBar>
+           <LeftSideBar sx={{zIndex:2}}></LeftSideBar>
                {/* <Box sx={{zIndex:2}}>
                <LeftSideBar></LeftSideBar>
                </Box>

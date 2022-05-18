@@ -21,10 +21,10 @@ const Contact = () => {
     const classes = useStyle();
     return (
         <Box className={classes.bgImage}>
-            <Typography  sx={{color:"#0bcdcd", fontSize:"18px",pt:5, fontWeight: 'bold'}} variant="button" display="block" gutterBottom>
+            <Typography  sx={{color:"#0bcdcd", fontSize:"18px",pt:5, fontWeight: 'bold',textAlign:"center"}} variant="button" display="block" gutterBottom>
                    Contact Us
                </Typography>
-               <Typography sx={{color:"#fff"}} variant="h4" gutterBottom component="div">
+               <Typography sx={{color:"#fff",textAlign:"center"}} variant="h5" gutterBottom component="div">
                     Always Contact With Us
                 </Typography>
                 <Box>

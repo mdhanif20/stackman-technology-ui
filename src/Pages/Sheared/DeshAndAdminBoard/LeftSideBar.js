@@ -80,7 +80,13 @@ const useStyle = makeStyles({
 
 const LeftSideBar = () => {
     const classes = useStyle();
-    const {admin} = useAuth();
+    const {admin,logOut,users} = useAuth();
+    const logOutEmail = () =>{
+        const sure = window.confirm("Are You Sure? You Want To log Out.");
+        if(sure){
+          logOut();
+        }
+      }
 
     return (
         <Box sx={{display:"flex"}}>
@@ -94,25 +100,32 @@ const LeftSideBar = () => {
                     </div>
                     </Link>
 
-                    <Link className={classes.linkDesign} to="/deshboard/allAppointment">
-                    <div className={classes.item}>
-                        <CalendarTodayIcon style={{fontSize:"30px"}} className={classes.icon}/>
-                          <Typography style={{fontWeight:400}} className={classes.text}>Appointment</Typography>   
-                    </div>
+                    <Link className={classes.linkDesign} to="/appointment">
+                        <div className={classes.item}>
+                            <CalendarTodayIcon style={{fontSize:"30px"}} className={classes.icon}/>
+                            <Typography style={{fontWeight:400}} className={classes.text}>Appointment</Typography>   
+                        </div>
                     </Link>
+                    
+                   
 
-                    <div className={classes.item}>
-                        <PeopleIcon style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:400}} className={classes.text}>Patients</Typography>
-                    </div>
                    {
                         
-                    admin && <Link className={classes.linkDesign} to="/deshboard/makeadmin">
-                  <div className={classes.item}>
-                      <ManageAccountsIcon style={{fontSize:"30px"}}  className={classes.icon}/>
-                      <Typography style={{fontWeight:400}} className={classes.text}>Make Admin</Typography>
-                  </div>
-                  </Link>
+                    admin && <Box>
+                    <Link className={classes.linkDesign} to="/deshboard/allAppointment">
+                        <div className={classes.item}>
+                            <PeopleIcon style={{fontSize:"30px"}}  className={classes.icon}/>
+                            <Typography style={{fontWeight:400}} className={classes.text}>Patients</Typography>
+                        </div>
+                    </Link>
+                    <Link className={classes.linkDesign} to="/deshboard/makeadmin">
+                            <div className={classes.item}>
+                                <ManageAccountsIcon style={{fontSize:"30px"}}  className={classes.icon}/>
+                                <Typography style={{fontWeight:400}} className={classes.text}>Make Admin</Typography>
+                            </div>
+                        </Link>
+                        </Box>
+                   
 
                    }
                       
@@ -127,27 +140,59 @@ const LeftSideBar = () => {
                         <Settings style={{fontSize:"30px"}}  className={classes.icon}/>
                         <Typography style={{fontWeight:400}} className={classes.text}>Settings</Typography>
                     </div>
-                    <div className={classes.item}>
-                        <Logout style={{fontSize:"30px"}}  className={classes.icon}/>
-                        <Typography style={{fontWeight:400}} className={classes.text}>Logout</Typography>
-                    </div>
+                    {
+                        users?.email?
+                        <div onClick={()=>logOutEmail()} className={classes.item}>
+                            <Logout style={{fontSize:"30px"}}  className={classes.icon}/>
+                            <Typography style={{fontWeight:400}} className={classes.text}>Log Out</Typography>
+                        </div>
+                        :
+                        <Link style={{textDecoration:"none",color:"#fff"}} to="/login">
+                        <div className={classes.item}>
+                            <Logout style={{fontSize:"30px"}}  className={classes.icon}/>
+                            <Typography style={{fontWeight:400}} className={classes.text}>Log In</Typography>
+                        </div>
+                        </Link>
+                      }
+                    
                 </Container>
             </Box>
 
-            <Box sx={{display:{xs:"block",sm:"none"}}}>
+            <Box sx={{display:{xs:"block",sm:"none"},zIndex:1}}>
                     <Container sx={{ bgcolor:"#0f0c0b",width:"34px"}} className={classes.containerSmall}>
-                    <div className={classes.itemSmall}>
-                        <AppsIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Deshboard</Typography>
-                    </div>
-                    <div className={classes.itemSmall}>
-                        <CalendarTodayIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Appointment</Typography>
-                    </div>
-                    <div className={classes.itemSmall}>
-                        <PeopleIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:400}} className={classes.textSmall}>Patients</Typography>
-                    </div>
+                    <Link className={classes.linkDesign} to="/deshboard"> 
+                        <div className={classes.itemSmall}>
+                            <AppsIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
+                            <Typography style={{fontWeight:400}} className={classes.textSmall}>Deshboard</Typography>
+                        </div>
+                    </Link>
+                    <Link className={classes.linkDesign} to="/appointment">
+                        <div className={classes.itemSmall}>
+                            <CalendarTodayIcon style={{fontSize:"25px"}} className={classes.iconSmall}/>
+                            <Typography style={{fontWeight:400}} className={classes.textSmall}>Appointment</Typography>
+                        </div>
+                    </Link>
+                    
+
+                    {
+                        
+                        admin && <Box>
+                        <Link className={classes.linkDesign} to="/deshboard/allAppointment">
+                        <div className={classes.itemSmall}>
+                            <PeopleIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
+                            <Typography style={{fontWeight:400}} className={classes.textSmall}>Patients</Typography>
+                        </div>
+                        </Link>
+                        <Link className={classes.linkDesign} to="/deshboard/makeadmin">
+                            <div className={classes.itemSmall}>
+                                <ManageAccountsIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
+                                <Typography style={{fontWeight:400}} className={classes.textSmall}>MakeAdmin</Typography>
+                            </div>
+                        </Link>
+                        </Box>
+                       }
+                          
+                    
                     <div className={classes.itemSmall}>
                         <AssignmentIcon style={{fontSize:"25px"}}  className={classes.iconSmall}/>
                         <Typography style={{fontWeight:400}} className={classes.textSmall}>Prescription</Typography>
@@ -156,10 +201,21 @@ const LeftSideBar = () => {
                         <Settings style={{fontSize:"25px"}}  className={classes.iconSmall}/>
                         <Typography style={{fontWeight:400}}  className={classes.textSmall}>Settings</Typography>
                     </div>
-                    <div className={classes.itemSmall}>
-                        <Logout style={{fontSize:"25px"}}  className={classes.iconSmall}/>
-                        <Typography style={{fontWeight:400}}  className={classes.textSmall}>Logout</Typography>
-                    </div>
+                    {
+                        users?.email?
+                        <div onClick={()=>logOutEmail()} className={classes.itemSmall}>
+                            <Logout style={{fontSize:"25px"}}  className={classes.iconSmall}/>
+                            <Typography style={{fontWeight:400}}  className={classes.textSmall}>Log Out</Typography>
+                        </div>
+                        :
+                        <Link style={{textDecoration:"none",color:"#fff"}} to="/login">
+                            <div className={classes.itemSmall}>
+                                <Logout style={{fontSize:"25px"}}  className={classes.iconSmall}/>
+                                <Typography style={{fontWeight:400}}  className={classes.textSmall}>Log In</Typography>
+                            </div>
+                        </Link>
+                      }
+                    
                 </Container>
             </Box>
             <Outlet/>

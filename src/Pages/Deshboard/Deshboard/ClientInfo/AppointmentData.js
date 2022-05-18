@@ -1,14 +1,10 @@
 import React,{useState} from 'react';
 import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import { makeStyles } from '@material-ui/core/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
-import HandleVisited from './../HandleVisited/HandleVisited';
 
-console.log(HandleVisited)
 
 const useStyle = makeStyles({
   button:{
