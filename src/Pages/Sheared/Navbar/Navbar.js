@@ -106,7 +106,7 @@ const Navbar = () => {
                     users?.email && 
                     <MenuItem  onClick={handleCloseNavMenu}>
                           <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/deshboard">
-                            <Typography style={{color:"#0F0C0B"}} textAlign="center">DeshBoard</Typography>
+                            <Typography style={{color:"#0F0C0B"}} textAlign="center">Desh Board</Typography>
                           </Link>
                     </MenuItem>
                     }
