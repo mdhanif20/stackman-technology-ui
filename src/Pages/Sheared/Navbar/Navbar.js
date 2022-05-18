@@ -102,15 +102,14 @@ const Navbar = () => {
                       </Link>
                     </MenuItem>
 
+                    {
+                    users?.email && 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      {
-                        users?.email && 
                           <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/deshboard">
-                            <Typography textAlign="center">DeshBoard</Typography>
+                            <Typography style={{color:"#0F0C0B"}} textAlign="center">DeshBoard</Typography>
                           </Link>
-                     
-                      }
                     </MenuItem>
+                    }
 
                     <MenuItem  onClick={handleCloseNavMenu}>
                       <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/contact">
