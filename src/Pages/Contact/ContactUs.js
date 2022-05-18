@@ -34,8 +34,8 @@ const ContactUs = () => {
                 <Navbar></Navbar>
             </Box>
            <Box>
-           {/* <Box sx={{margin:{xs:"0px",sm:"50px"},display:"flex",boxShadow: "0px 1px 3px #c4bdbd;"}}> */}
-           <Container sx={{textAlign:"start",p:5,display:"flex"}}>
+        
+           <Container sx={{textAlign:"start",py:5,display:"flex"}}>
            <Grid container>
                 <Grid item sx={{background:"#0F0C0B"}} xs={12} sm={4} md={3}>
                         <Box sx={{ color:'#fff',background:"#0F0C0B",padding:"30px"}}>
@@ -73,7 +73,7 @@ const ContactUs = () => {
             
            </Container>
            
-            {/* </Box> */}
+        
            </Box>
             <Box sx={{bgcolor:"#0f0c0b",boxShadow: "1px 12px 12px 14px #b4acac",color:"#fff"}}>
                 <FooterHome></FooterHome>
