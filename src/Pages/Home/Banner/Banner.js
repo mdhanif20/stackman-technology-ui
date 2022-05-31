@@ -1,6 +1,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import image from "../../../images/chair.png";
+import image from "../../../images/bannerBg.jpg";
+import bannerImg1 from "../../../images/slider2.png";
+import bannerImg2 from "../../../images/slider21.png";
+import bannerImg3 from "../../../images/slider22.png";
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -62,7 +65,7 @@ const Banner = () => {
                     <Grid container >
                         <Grid  className={classes.textArea} xs={12} md={6}>
                         <Typography sx={{ fontWeight: 'medium', color:"#203047",pt:3}} variant="h4" gutterBottom component="div">
-                            Your New Smile <br /> Start Here
+                            Welcome to  <br /> Apollo Hospital
                         </Typography>
                         <Typography sx={{pb:2}} variant="caption" display="block" gutterBottom>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Et iste saepe tempora officia laborum aliquam adipisci <br />perferendis porro minima. Et iste saepe tempora <br /> officia laborum aliquam adipisci perferendis porro minima.
@@ -73,7 +76,7 @@ const Banner = () => {
                         
                         </Grid>
                         <Grid xs={12} md={6}>
-                            <img  className={classes.bannerImage} src={image} alt="" />
+                            <img  className={classes.bannerImage} src={bannerImg2} alt="" />
                         </Grid>
                         
                     </Grid>
@@ -85,11 +88,11 @@ const Banner = () => {
                 <Container sx={{pt:15,pb:3}}>
                     <Grid container >
                     <Grid sx={{display:{xs:"block", md:"none"}}} xs={12} md={6}>
-                            <img  className={classes.bannerImage} src={image} alt="" />
+                            <img  className={classes.bannerImage} src={bannerImg1} alt="" />
                         </Grid>
                         <Grid  className={classes.textArea} xs={12} md={6}>
                         <Typography sx={{ fontWeight: 'medium', color:"#203047",pt:0}} variant="h4" gutterBottom component="div">
-                            Your New Smile <br /> Start Here
+                            Welcome to  <br /> Apollo Hospital
                         </Typography>
                         <Typography sx={{pb:1}} variant="caption" display="block" gutterBottom>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et iste saepe tempora officia laborum aliquam adipisci perferendis porro minima. Et iste saepe tempora officia laborum aliquam adipisci perferendis porro minima.

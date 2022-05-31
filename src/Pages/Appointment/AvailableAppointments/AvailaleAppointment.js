@@ -7,37 +7,37 @@ import Alert from '@mui/material/Alert';
 const bookings = [
     {
     id:1,
-    name:"Teeth Orthodontics",
+    name:"Cardiac Health",
     time:"8:00 AM - 9.00 AM",
     space:10
     },
     {
     id:2,
-    name:"Cosmetic Dentistry",
+    name:"Neurology",
     time:"10:05 AM - 11.30 AM",
     space:10
     },
     {
     id:3,
-    name:"Teeth Cleaning",
+    name:"Urology",
     time:"5:00 AM - 6.30 AM",
     space:10
     },
     {
     id:4,
-    name:"Cavity Protection",
+    name:"Lungs Health",
     time:"7:00 AM - 8.30 AM",
     space:10
     },
     {
     id:5,
-    name:"Teeth Orthodontics",
+    name:"Orthopedic",
     time:"8:00 AM - 9.00 AM",
     space:10
     },
     {
     id:6,
-    name:"Teeth Orthodontics",
+    name:"Eye Treatment",
     time:"8:00 AM - 9.00 AM",
     space:10
     }

@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core';
 import Contact from '../Home/Contact/Contact';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import ContactReall from '../Home/Contact/ContactReall';
 
 const useStyle = makeStyles({
     iconArea:{
@@ -35,43 +36,9 @@ const ContactUs = () => {
             </Box>
            <Box>
         
-           <Container sx={{textAlign:"start",py:5,display:"flex"}}>
-           <Grid container>
-                <Grid item sx={{background:"#0F0C0B"}} xs={12} sm={4} md={3}>
-                        <Box sx={{ color:'#fff',background:"#0F0C0B",padding:"30px"}}>
-                            <Typography sx={{fontSize:"1.5rem"}} variant="button" gutterBottom>
-                                Location
-                            </Typography>
-                            <Typography sx={{fontSize:"1.2rem"}} variant="body1" gutterBottom>
-                                House-32, Kanchannagar, <br />
-                                Chandanish, Chittagong.
-                            </Typography>
-                            <Box sx={{mt:{xs:3,sm:5,md:15},mb:2}}>
-                                <span className={classes.icon}><FacebookIcon/></span>
-                                <span className={classes.icon}><EmailIcon/></span>
-                                <span className={classes.icon}><TwitterIcon/></span>
-                                <span className={classes.icon}><LinkedInIcon/></span>
-                            </Box>
-                            <Typography sx={{fontSize:"1.2rem",marginBottom:"20px"}} variant="body1" gutterBottom>
-                                Phone: <br />
-                                +8801821876351 <br />
-                                +8801609015767 <br />
-                                mdhanif2921@gmail.com
-                            </Typography>
-                    </Box>
-                </Grid>
-                <Grid item xs={12} sm={8} md={9}>
-                <Box>
-                    <Box sx={{marginTop:"-90px"}}>
-                        <Contact></Contact>
-                    </Box>
-                </Box>
-                </Grid>
-                
-            </Grid>
-          
-            
-           </Container>
+           <Box sx={{mt:{xs:5,sm:10},mx:{xs:2,sm:2,md:5}}}>
+            <ContactReall></ContactReall>
+           </Box>
            
         
            </Box>

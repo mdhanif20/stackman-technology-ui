@@ -7,9 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyle = makeStyles({
     image:{
-        width: "auto",
+        width: "100%",
         margin:" auto",
-        padding: "10px"
+        height:"200px"
     },
     card:{
         boxShadow: "none",

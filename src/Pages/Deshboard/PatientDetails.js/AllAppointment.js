@@ -19,7 +19,7 @@ const AllAppointment = () => {
       value = value+1;
   }
   useEffect(()=>{
-    fetch("https://peaceful-bayou-32308.herokuapp.com/deshboard/appointments")
+    fetch("http://localhost:5000/deshboard/appointments")
     .then(res=>res.json())
     .then(data=> setAppointments(data))
     },[]) 

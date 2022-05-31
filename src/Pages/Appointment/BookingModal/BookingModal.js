@@ -52,7 +52,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
     }
 
     const bookingSubmit = e =>{
-        fetch("https://peaceful-bayou-32308.herokuapp.com/appointments",{
+        fetch("http://localhost:5000/appointments",{
         method:"POST",
         headers:{
           "content-type":"application/json"

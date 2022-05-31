@@ -7,13 +7,13 @@ import ContactForm from './ContactForm';
 
 const useStyle = makeStyles({
     bgImage:{
-        background:`url(${bg})`,
-        backgroundColor: "rgba(61, 61, 61, .8)",
+        // background:`url(${bg})`,
+        // backgroundColor: "rgba(61, 61, 61, .8)",
         backgroundBlendMode: "darken, luminosity",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         padding:"40px 0px",
-        marginTop:"90px"
+        textAlign:"start"
     }
 })
 
@@ -21,10 +21,10 @@ const Contact = () => {
     const classes = useStyle();
     return (
         <Box className={classes.bgImage}>
-            <Typography  sx={{color:"#0bcdcd", fontSize:"18px",pt:5, fontWeight: 'bold',textAlign:"center"}} variant="button" display="block" gutterBottom>
+            <Typography  sx={{color:"#fff", fontSize:"18px", fontWeight: 'bold',textAlign:"start"}} variant="button" display="block" gutterBottom>
                    Contact Us
                </Typography>
-               <Typography sx={{color:"#fff",textAlign:"center"}} variant="h5" gutterBottom component="div">
+               <Typography sx={{color:"#fff",textAlign:"start"}} variant="h5" gutterBottom component="div">
                     Always Contact With Us
                 </Typography>
                 <Box>

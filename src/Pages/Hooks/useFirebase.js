@@ -62,7 +62,7 @@ const useFirebase = () =>{
   //save user on database
   const saveUser = (email,displayname,method)=>{
     const user = {email, displayname};
-    fetch('https://peaceful-bayou-32308.herokuapp.com/users',{
+    fetch('http://localhost:5000/users',{
       method:method,
       headers:{
         'content-type':'application/json'
@@ -92,7 +92,7 @@ const useFirebase = () =>{
 
     //admin panel login
     useEffect(()=>{
-      const url = `https://peaceful-bayou-32308.herokuapp.com/users/${users.email}`;
+      const url = `http://localhost:5000/users/${users.email}`;
       fetch(url)
       .then(res=>res.json())
       .then(data => setAdmin(data.admin))

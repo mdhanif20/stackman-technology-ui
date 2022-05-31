@@ -32,8 +32,8 @@ function App() {
               <Route path="/deshboard/*" element={<Deshboard/>}> 
                 <Route path="patients" element={<Patients/>}/>  
                 <Route path="*" element={<ClientInfo/>}/>
-                  <Route path="*" element={<AdminRoute/>}>
-                  <Route path="allAppointment" element={<AllAppointment/>}/>
+                  <Route path="*" element={<AdminRoute/>}> 
+                    <Route path="allAppointment" element={<AllAppointment/>}/>
                     <Route path="makeadmin" element={<MakeAdmin/>}/>
                   </Route>
               </Route>

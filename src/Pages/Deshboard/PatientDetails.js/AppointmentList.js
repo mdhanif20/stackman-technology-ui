@@ -16,7 +16,7 @@ const AppointmentList = ({appointment,value,id}) => {
 
 /*    useEffect(()=>{
            if(visited){
-            fetch('https://peaceful-bayou-32308.herokuapp.com/deshboard/appointments',{
+            fetch('http://localhost:5000/deshboard/appointments',{
                 method:"PUT",
                 headers:{
                 'content-type':'application/json'

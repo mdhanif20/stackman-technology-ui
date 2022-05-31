@@ -47,7 +47,7 @@ const Navbar = () => {
                 component="div"
                 sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
               >
-                Doctors Portal
+                Apollo Hospital
               </Typography>
 
 
@@ -57,7 +57,7 @@ const Navbar = () => {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
               >
-                Doctors Portal
+                Apollo Hospital
               </Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },justifyContent: 'flex-end'  }}>

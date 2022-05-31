@@ -13,13 +13,13 @@ const ClientInfo = () => {
                Your Appointment
             </Typography>
             <Grid container spacing={2}>
-                <Grid item sx={{paddingLeft:"0"}} sm={12} md={6}>
+                <Grid item sx={{paddingLeft:"0",marginLeft:"-20px"}} sm={12} md={6}>
                     <Calendar
                     date={date}
                     setDate={setDate}
                     ></Calendar>
                 </Grid>
-                <Grid item style={{paddingLeft:0}} sm={12} md={6}>
+                <Grid item style={{paddingLeft:"15px"}} sm={12} md={6}>
                    <AppointmentInfo
                    date ={date}
                    ></AppointmentInfo>   

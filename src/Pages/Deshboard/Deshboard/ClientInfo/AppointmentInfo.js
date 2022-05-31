@@ -28,7 +28,7 @@ const AppointmentInfo = ({date}) => {
     const DateLocal = new Date(date).toLocaleDateString();
 
     useEffect(()=>{
-        const url = `https://peaceful-bayou-32308.herokuapp.com/appointments?email=${users.email}&date=${DateLocal}`;
+        const url = `http://localhost:5000/appointments?email=${users.email}&date=${DateLocal}`;
          fetch(url,{
            headers:{
              'authorization':`Bearer ${token}`
@@ -40,7 +40,7 @@ const AppointmentInfo = ({date}) => {
     
     return (
         <Box sx={{ml:{xs:0,sm:2}}}>
-            <Typography sx={{textAlign:"start",fontSize:"20px",fontWeight:"500",pb:2,ml:2}} variant="body1" gutterBottom>
+            <Typography sx={{textAlign:"start",fontSize:"20px",fontWeight:"500",pb:2,marginLeft:"15px"}} variant="body1" gutterBottom>
                 Your Appointment History
             </Typography>
  

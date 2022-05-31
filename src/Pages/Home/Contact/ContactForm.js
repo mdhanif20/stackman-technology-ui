@@ -8,7 +8,7 @@ import useAuth from './../../Hooks/useAuth';
 
 const useStyle = makeStyles({
     input:{
-        width: "100%",
+        width: "90%",
         fontSize: "18px",
         padding: "12px 4px",
         borderRadius: "7px",
@@ -16,7 +16,7 @@ const useStyle = makeStyles({
         marginTop:"15px"
     },
     textArea:{
-        width: "100%",
+        width: "90%",
         height: "90px",
         padding: "12px 4px",
         borderRadius: "7px",
@@ -45,15 +45,17 @@ const ContactForm = () => {
     const {users} = useAuth();
     const sendEmail = e =>{
         e.preventDefault()
-        emailjs.sendForm('service_64fo5li', 'template_k82qf6c', e.target, 'sEIjvaT255FOB530n')
+        emailjs.sendForm('service_64fo5li', 'template_97mzt4i', e.target, 'sEIjvaT255FOB530n')
         .then((res) => {
             alert("Email Send Successfully.")
             form.current.reset(); 
         }).catch(err => console.log(err));
     }
     return (
-        <Container sx={{textAlign:"center"}}>
-            <Box sx={{width:{xs:"94%",md:"60%"},margin:"auto"}}>
+        <Box> 
+
+        {/* <Container sx={{textAlign:"center"}}> */}
+            {/* <Box sx={{width:{xs:"94%",md:"60%"},margin:"auto"}}>  */}
                 <form ref={form} onSubmit={sendEmail}>
                     <input type="email" name="user_email" className={classes.input} placeholder="Enter your email" /> <br />
                     <input type="text" name="user_name" className={classes.input} placeholder='Subject' /> <br />
@@ -62,8 +64,9 @@ const ContactForm = () => {
                     <input className={classes.submitButton} type="submit" value="Send"/>
                     </Button>
                 </form>
-            </Box>
-        </Container>
+            {/* </Box> */}
+        {/* </Container>  */}
+        </Box>
     );
 };
 

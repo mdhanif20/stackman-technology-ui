@@ -2,13 +2,16 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import ourDoctors from "../../../images/doctor-small.png";
+import doctor1 from "../../../images/doctor11.png";
+import doctor2 from "../../../images/doctor12.png";
+import doctor3 from "../../../images/doctor13.png";
 import { makeStyles } from '@material-ui/core/styles';
 import PhoneIcon from '@mui/icons-material/Phone';
 
 const useStyle = makeStyles({
     image:{
-        width:"100%"
+        width:"70%",
+        height:"70%"
     },
     doctorText:{
         display: "flex",
@@ -26,27 +29,27 @@ const OurDoctors = () => {
                </Typography>
                <Grid container>
                     <Grid sx={{my:3}} xs={12} md={4}>
-                        <img className={classes.image} src={ourDoctors} alt="" />
+                        <img className={classes.image} src={doctor1} alt="" />
                         <Typography variant="h6" gutterBottom component="div">
-                            Dr.Hanif
+                            Dr.Faruk
                         </Typography>
                         <Typography className={classes.doctorText} variant="caption" gutterBottom>
                         <PhoneIcon sx={{fontSize:"18px",color:"#6CCCCC"}}/> <span>+8801609015767</span>
                     </Typography>
                     </Grid>
                     <Grid sx={{my:3}} xs={12} md={4}>
-                        <img className={classes.image} src={ourDoctors} alt="" />
+                        <img className={classes.image} src={doctor3} alt="" />
                         <Typography variant="h6" gutterBottom component="div">
-                            Dr.Hanif
+                            Dr.Badry
                         </Typography>
                         <Typography className={classes.doctorText} variant="caption" gutterBottom>
                         <PhoneIcon sx={{fontSize:"18px",color:"#6CCCCC"}}/> <span>+8801609015767</span>
                     </Typography>
                     </Grid>
                     <Grid sx={{my:3}} xs={12} md={4}>
-                        <img className={classes.image} src={ourDoctors} alt="" />
+                        <img className={classes.image} src={doctor2} alt="" />
                         <Typography variant="h6" gutterBottom component="div">
-                            Dr.Hanif
+                            Dr.Khan
                         </Typography>
                         <Typography className={classes.doctorText} variant="caption" gutterBottom>
                         <PhoneIcon sx={{fontSize:"18px",color:"#6CCCCC"}}/> <span>+8801609015767</span>

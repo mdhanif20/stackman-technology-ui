@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
-import bg from "../../../images/appointment-bg.png";
+import bg from "../../../images/bannerBg.jpg";
 import Grid from '@mui/material/Grid';
-import doctor from "../../../images/doctor.png";
+import doctor from "../../../images/doctor1.png";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
@@ -17,7 +17,7 @@ const useStyle = makeStyles({
     bannerImage:{
         width: "100%",
         height: "100%",
-        marginTop: "-115px",
+        marginTop: "-270px",
         marginBottom: "-5px"
     },
     button:{
