@@ -16,7 +16,7 @@ const AppointmentList = ({appointment,value,id}) => {
 
 /*    useEffect(()=>{
            if(visited){
-            fetch('http://localhost:5000/deshboard/appointments',{
+            fetch('https://salty-castle-17085.herokuapp.com/deshboard/appointments',{
                 method:"PUT",
                 headers:{
                 'content-type':'application/json'

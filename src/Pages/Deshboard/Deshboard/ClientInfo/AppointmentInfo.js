@@ -28,7 +28,7 @@ const AppointmentInfo = ({date}) => {
     const DateLocal = new Date(date).toLocaleDateString();
 
     useEffect(()=>{
-        const url = `http://localhost:5000/appointments?email=${users.email}&date=${DateLocal}`;
+        const url = `https://salty-castle-17085.herokuapp.com/appointments?email=${users.email}&date=${DateLocal}`;
          fetch(url,{
            headers:{
              'authorization':`Bearer ${token}`
