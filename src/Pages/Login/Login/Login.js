@@ -34,7 +34,7 @@ const useStyle = makeStyles({
 
 const Login = () => {
     const classes = useStyle();
-    const {singnInUser,signInWithGoogle} = useAuth();
+    const {users,singnInUser,signInWithGoogle} = useAuth();
     const [user,setUser] = useState({});
     const navigate = useNavigate(); 
     
@@ -47,11 +47,11 @@ const Login = () => {
     }
     const googleSignIn = e =>{
         signInWithGoogle()
-        navigate("/appointment") 
+        navigate("/appointment")
     }
     const loginAccount = e =>{
     singnInUser(user.Email,user.Password)
-    navigate("/appointment") 
+    navigate("/appointment")
         e.preventDefault()
     }
    

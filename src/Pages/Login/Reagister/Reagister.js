@@ -50,7 +50,12 @@ const Reagister = () => {
         }
         else{
             registerUser(user.email,user.password,user.name)
-            navigate("/appointment")
+            if(users.email){
+                navigate("/")
+            }
+            else{
+                alert("You password and email not match.")
+            }
         }
         
         e.preventDefault()

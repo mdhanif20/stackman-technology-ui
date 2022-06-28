@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Contact from './Contact';
-import Container from '@mui/material/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@mui/material/Typography';
 import FacebookIcon from '@mui/icons-material/Facebook';
