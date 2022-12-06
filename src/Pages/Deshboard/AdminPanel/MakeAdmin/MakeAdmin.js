@@ -43,7 +43,7 @@ const MakeAdmin = () => {
     }
 
     const addAdmin = e =>{
-        fetch("https://salty-castle-17085.herokuapp.com/users/admin",{
+        fetch("https://apollo-hospital-server.onrender.com/users/admin",{
             method:"PUT",
             headers:{
                 'authorization':`Bearer ${token}`,

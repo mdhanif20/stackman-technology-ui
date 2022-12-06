@@ -16,7 +16,7 @@ const AppointmentList = ({appointment,value,id}) => {
 
 /*    useEffect(()=>{
            if(visited){
-            fetch('https://salty-castle-17085.herokuapp.com/deshboard/appointments',{
+            fetch('https://apollo-hospital-server.onrender.com/deshboard/appointments',{
                 method:"PUT",
                 headers:{
                 'content-type':'application/json'

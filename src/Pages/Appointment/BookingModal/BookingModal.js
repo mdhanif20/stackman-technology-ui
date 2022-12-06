@@ -52,7 +52,7 @@ const BookingModal = ({openBooking, setBookingSuccess, handleBookingClose,bookin
     }
 
     const bookingSubmit = e =>{
-        fetch("https://salty-castle-17085.herokuapp.com/appointments",{
+        fetch("https://apollo-hospital-server.onrender.com/appointments",{
         method:"POST",
         headers:{
           "content-type":"application/json"
