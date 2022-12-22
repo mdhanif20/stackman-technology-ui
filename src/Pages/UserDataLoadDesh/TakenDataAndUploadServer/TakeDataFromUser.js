@@ -32,7 +32,7 @@ const TakeDataFromUser = ({date}) => {
     }
     console.log(getAllData)
     useEffect(()=>{
-        fetch("http://localhost:5000/userInfo")
+        fetch("https://stackman-server.onrender.com/userInfo")
         .then(res=>res.json())
         .then(data => {
             setTokenNumber(parseInt(data[data.length-1].token))
@@ -45,7 +45,7 @@ const TakeDataFromUser = ({date}) => {
             alert("Please, fill up name or number properly!")
         }
         else{
-            fetch("http://localhost:5000/userInfo",{
+            fetch("https://stackman-server.onrender.com/userInfo",{
             method:"POST",
             headers:{
               "content-type":"application/json"

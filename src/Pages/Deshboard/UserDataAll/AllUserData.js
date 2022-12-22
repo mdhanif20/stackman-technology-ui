@@ -11,7 +11,7 @@ const AllUserData = () => {
       value = value+1;
   }
   useEffect(()=>{
-    fetch("http://localhost:5000/userInfo")
+    fetch("https://stackman-server.onrender.com/userInfo")
     .then(res=>res.json())
     .then(data=> setAllUserInfo(data))
     },[]) 

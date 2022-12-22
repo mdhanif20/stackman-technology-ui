@@ -29,7 +29,7 @@ const UserSideSingleInfo = ({date}) => {
     const DateLocal = new Date(date).toLocaleDateString();
 
     useEffect(()=>{
-        const url = `http://localhost:5000/singleUserInfo?email=${users.email}&date=${DateLocal}`;
+        const url = `https://stackman-server.onrender.com/singleUserInfo?email=${users.email}&date=${DateLocal}`;
          fetch(url)
         .then(res => res.json())
         .then(data => setTakenData(data))
