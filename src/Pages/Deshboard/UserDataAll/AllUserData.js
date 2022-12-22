@@ -1,34 +1,26 @@
 import React,{useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@mui/material/Container';
-import AppointmentList from './AppointmentList';
-const useStyle = makeStyles({
-    table:{
-        width:"100%"
-    }
-})
+import AllUserDataList from './AllUserDataList';
 
 
-
-const AllAppointment = () => {
-  const [appoinments,setAppointments] = useState([]);
+const AllUserData = () => {
+  const [allUserInfo,setAllUserInfo] = useState([]);
   let value = 1;
   const serialNumber = (n)=>{
       value = value+1;
   }
   useEffect(()=>{
-    fetch("https://apollo-hospital-server.onrender.com/deshboard/appointments")
+    fetch("http://localhost:5000/userInfo")
     .then(res=>res.json())
-    .then(data=> setAppointments(data))
+    .then(data=> setAllUserInfo(data))
     },[]) 
    
    
     return (
         <Box sx={{m:{xs:1,sm:2}}}>
             <Typography sx={{textAlign:"start",paddingBottom:"10px"}} variant="h6" gutterBottom component="div">
-               All Appointment
+               All User Side Data
             </Typography>
             
       
@@ -36,32 +28,28 @@ const AllAppointment = () => {
        <div style={{
             height:"80vh",
             overflow:"scroll"
-            
             }}>
             <table style={{ borderCollapse: "collapse", width:"500px",borderSpacing: "0",border:" 1px solid #ddd"}}>
                 <thead style={{position:'sticky',top:'0px',color:'#fff',backgroundColor:"#0F0C0B"}}>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>No</th>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Name</th>
+                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Number</th>
+                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Token</th>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Date</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Email</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Phone</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Age</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Weight</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Treatment</th>
-                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Handle</th>
+                <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>email</th>
                 </thead>
                 
                 {
-                    appoinments.map(appointment=><AppointmentList
-                         key={appointment._id}
-                        appointment={appointment}
+                    allUserInfo.map(info=><AllUserDataList
+                         key={info._id}
+                        singleInfo={info}
                         value={value}
-                        id={appointment._id}
+                        id={info._id}
                         >
                             {
-                                appointment._id && serialNumber()
+                                info._id && serialNumber()
                             }
-                        </AppointmentList> )
+                        </AllUserDataList> )
                 }
                
                
@@ -73,4 +61,4 @@ const AllAppointment = () => {
     );
 };
 
-export default AllAppointment;
+export default AllUserData;

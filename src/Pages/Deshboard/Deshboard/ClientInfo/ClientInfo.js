@@ -3,14 +3,14 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Calendar from './../../../Sheared/Calendar/Calendar';
-import AppointmentInfo from './AppointmentInfo';
+import UserSideSingleInfo from './UserSideSingleInfo';
 
 const ClientInfo = () => {
     const [date,setDate] = useState(new Date())
     return (
         <Box sx={{p:{xs:1, sm:2}}}>
             <Typography sx={{fontWeight:700,textAlign:"start",pt:{xs:4,sm:0}}} variant="h5" gutterBottom component="div">
-               Your Appointment
+               User Information
             </Typography>
             <Grid container spacing={2}>
                 <Grid item sx={{paddingLeft:"0",marginLeft:"-20px"}} sm={12} md={6}>
@@ -20,9 +20,9 @@ const ClientInfo = () => {
                     ></Calendar>
                 </Grid>
                 <Grid item style={{paddingLeft:"15px"}} sm={12} md={6}>
-                   <AppointmentInfo
+                   <UserSideSingleInfo
                    date ={date}
-                   ></AppointmentInfo>   
+                   ></UserSideSingleInfo>   
                 </Grid>
             </Grid>
         </Box>

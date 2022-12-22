@@ -53,22 +53,17 @@ const Reagister = () => {
             if(users.email){
                 navigate("/")
             }
-            else{
-                alert("You password and email not match.")
-            }
         }
         
         e.preventDefault()
     }
     return (
        <Box>
-           <Box sx={{backgroundColor:"#24262f"}}>
-                <Navbar></Navbar>
-          </Box>
-            <Container>
-        <Box sx={{py:10}}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
+        <Box>
+            <Navbar></Navbar>
+        </Box>
+        <Container>
+        <Box sx={{py:5}}>
                     
                     <Box className={classes.login} sx={{width:{md:"80%",xs:"90%"}, padding:{md:"70px 20px",xs:"30px 10px"}}}>
                     <Typography sx={{pb:2}} variant="h6" gutterBottom component="div">
@@ -83,8 +78,9 @@ const Reagister = () => {
                             name="name"
                             onBlur={onChangeBlur}
                             label="Your Name"
-                                variant="standard" 
-                                /> <br /> <br /> 
+                            variant="standard" 
+                            /> <br /> <br /> 
+                            
                             <TextField 
                             sx={{width:{md:"75%",xs:1}}}
                             id="standard-basic"
@@ -125,16 +121,9 @@ const Reagister = () => {
                 </Alert>
                 }
             </Box>
-
-                        
-                    </Grid>
-                    <Grid sx={{display:{md:"block",xs:"none"}}} item xs={12} md={6}>
-                        <img className={classes.image} src={img} alt="" />
-                    </Grid>
-                </Grid>
         </Box>
         </Container>
-        <Box sx={{bgcolor:"#0f0c0b",boxShadow: "1px 12px 12px 14px #24262f",color:"#fff"}}>
+        <Box>
             <FooterHome></FooterHome>
         </Box>
        </Box>

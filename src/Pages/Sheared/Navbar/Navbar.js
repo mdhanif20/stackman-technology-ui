@@ -38,7 +38,7 @@ const Navbar = () => {
 
 
     return (
-        <AppBar position="static" sx={{bgcolor:"transparent"}}>
+        <AppBar position="static" sx={{bgcolor:""}}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <Typography
@@ -47,7 +47,7 @@ const Navbar = () => {
                 component="div"
                 sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
               >
-                Apollo Hospital
+                Stickman
               </Typography>
 
 
@@ -57,7 +57,7 @@ const Navbar = () => {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
               >
-                Apollo Hospital
+                Stickman
               </Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },justifyContent: 'flex-end'  }}>
@@ -97,8 +97,8 @@ const Navbar = () => {
                     </MenuItem>
 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/appointment">
-                         <Typography textAlign="center">Appointment</Typography>
+                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/userSide">
+                         <Typography textAlign="center">User Side</Typography>
                       </Link>
                     </MenuItem>
 
@@ -112,8 +112,8 @@ const Navbar = () => {
                     }
 
                     <MenuItem  onClick={handleCloseNavMenu}>
-                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/contact">
-                         <Typography textAlign="center">Contact Us</Typography>
+                      <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/reagister">
+                         <Typography textAlign="center">reagister</Typography>
                       </Link>
                     </MenuItem>
 
@@ -122,7 +122,7 @@ const Navbar = () => {
                         users?.email?
                         <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
                         :
-                     <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/login">
+                     <Link style={{textDecoration:"none",color:"#0F0C0B"}} to="/home">
                         <Typography textAlign="center">Login</Typography>
                      </Link>
                       }
@@ -149,8 +149,8 @@ const Navbar = () => {
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: '#0F0C0B', display: 'block' }}>
-                      <Link style={{textDecoration:"none",color:"#fff"}} to="/appointment">
-                         <Typography textAlign="center">Appointment</Typography>
+                      <Link style={{textDecoration:"none",color:"#fff"}} to="/userSide">
+                         <Typography textAlign="center">User Side</Typography>
                       </Link>
                   </Button>
 
@@ -166,8 +166,8 @@ const Navbar = () => {
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: '#fff', display: 'block' }}>
-                      <Link style={{textDecoration:"none",color:"#fff"}} to="/contact">
-                         <Typography textAlign="center">Contact Us</Typography>
+                      <Link style={{textDecoration:"none",color:"#fff"}} to="/reagister">
+                         <Typography textAlign="center">Reagister</Typography>
                       </Link>
                   </Button>
                   <Button
@@ -177,7 +177,7 @@ const Navbar = () => {
                         users?.email?
                         <Typography onClick={()=>logOutEmail()} textAlign="center">Log Out</Typography>
                         :
-                     <Link style={{textDecoration:"none",color:"#fff"}} to="/login">
+                     <Link style={{textDecoration:"none",color:"#fff"}} to="/home">
                         <Typography textAlign="center">Login</Typography>
                      </Link>
                       }

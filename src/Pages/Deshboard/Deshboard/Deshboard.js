@@ -13,16 +13,9 @@ const Deshboard = () => {
            <Box>
            <Box sx={{margin:{xs:"0px",sm:"50px"},display:"flex",boxShadow: "0px 1px 3px #c4bdbd;"}}>
            <LeftSideBar sx={{zIndex:2}}></LeftSideBar>
-               {/* <Box sx={{zIndex:2}}>
-               <LeftSideBar></LeftSideBar>
-               </Box>
-               <Box sx={{zIndex:1}}>
-                   <ClientInfo></ClientInfo>
-               </Box> */}
-
             </Box>
            </Box>
-            <Box sx={{bgcolor:"#0f0c0b",boxShadow: "1px 12px 12px 14px #b4acac",color:"#fff"}}>
+            <Box sx={{borderTop:"1px solid #1976D2",color:"black"}}>
                 <FooterHome></FooterHome>
             </Box>
         </Box>
