@@ -35,7 +35,7 @@ const TakeDataFromUser = ({date}) => {
         fetch("https://stackman-server.onrender.com/userInfo")
         .then(res=>res.json())
         .then(data => {
-            setTokenNumber(parseInt(data[data.length-1].token))
+            setTokenNumber(parseInt(data[data.length-1].token) + 1)
         })
     },[]);
 
