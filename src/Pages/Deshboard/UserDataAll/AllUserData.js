@@ -2,17 +2,36 @@ import React,{useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import AllUserDataList from './AllUserDataList';
-import ReactPrint from "react-to-print";
 import Button from '@mui/material/Button';
-import {useRef} from "react";
+import { jsPDF } from 'jspdf';
+import { renderToString } from "react-dom/server";
 
 const AllUserData = () => {
   const [allUserInfo,setAllUserInfo] = useState([]);
-  const ref = useRef();
   let value = 1;
   const serialNumber = (n)=>{
       value = value+1;
   }
+
+  const handleDownload = (infos) =>{
+    const doc = new jsPDF()
+    for(let i=0; i < infos.length; i++){
+      console.log(i)
+      const info = infos[i];
+      const name = info.Name;
+      const number = info.number;
+      const token = info.token;
+      let htmlElement = `
+      Name: ${name}
+      Phone No: ${number}
+      Token No: ${token}
+      `
+      doc.text(5,5,renderToString(htmlElement))
+      doc.addPage()
+    }
+    doc.save(`All User Data.pdf`)
+  }
+
   useEffect(()=>{
     fetch("https://stackman-server.onrender.com/userInfo")
     .then(res=>res.json())
@@ -26,15 +45,14 @@ const AllUserData = () => {
                All User Side Data
             </Typography>
             <Box sx={{display:"flex",alignItems:"start"}}>
-            <ReactPrint trigger={()=><Button style={{color:"#fff",backgroundColor:"#1976D2",marginBottom:"20px",fontSize:"16px",padding:"5px 10px 5px 10px"}}>GENERATE PDF</Button>} content={()=>ref.current}/>
-          </Box>
+            <Button style={{backgroundColor:"#1976D2",color:"#fff",fontSize:"16px",padding:"5px 10px",marginBottom:"10px"}} onClick={()=>handleDownload(allUserInfo)}>Generate PDF</Button> </Box>
       
        <Box sx={{width:{xs:"280px",sm:"400px",md:"100%",lg:"100%"}}}>
        <div style={{
             height:"80vh",
             overflow:"scroll"
             }}>
-            <table ref={ref} style={{ borderCollapse: "collapse", width:"500px",borderSpacing: "0",border:" 1px solid #ddd"}}>
+            <table style={{ borderCollapse: "collapse", width:"500px",borderSpacing: "0",border:" 1px solid #ddd"}}>
                 <thead style={{position:'sticky',top:'0px',color:'#fff',backgroundColor:"#0F0C0B"}}>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>No</th>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Name</th>

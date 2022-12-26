@@ -9,9 +9,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import UserSideData from './UserSideData';
-import ReactPrint from "react-to-print";
 import Button from '@mui/material/Button';
-import {useRef} from "react";
+import { jsPDF } from 'jspdf';
+import { renderToString } from "react-dom/server";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -29,7 +29,25 @@ const UserSideSingleInfo = ({date}) => {
     const {users,token} = useAuth(); 
     const [takenData,setTakenData] = useState([]);
     const DateLocal = new Date(date).toLocaleDateString();
-    const ref = useRef();
+    
+    const handleDownload = (infos) =>{
+      const doc = new jsPDF()
+      for(let i=0; i < infos.length; i++){
+        console.log(i)
+        const info = infos[i];
+        const name = info.Name;
+        const number = info.number;
+        const token = info.token;
+        let htmlElement = `
+        Name: ${name}
+        Phone No: ${number}
+        Token No: ${token}
+        `
+        doc.text(5,5,renderToString(htmlElement))
+        doc.addPage()
+      }
+      doc.save(`${infos[0].Name}'s Data.pdf`)
+    }
 
     useEffect(()=>{
         const url = `https://stackman-server.onrender.com/singleUserInfo?email=${users.email}&date=${DateLocal}`;
@@ -44,11 +62,11 @@ const UserSideSingleInfo = ({date}) => {
             <Typography sx={{textAlign:"start",fontSize:"20px",fontWeight:"500",pb:2,marginLeft:"15px"}} variant="body1" gutterBottom>
                   User Side Data
             </Typography>
-          <Box sx={{display:"flex",alignItems:"start"}}>
-            <ReactPrint trigger={()=><Button style={{color:"#fff",backgroundColor:"#1976D2",marginBottom:"20px",fontSize:"16px",padding:"5px 10px 5px 10px"}}>GENERATE PDF</Button>} content={()=>ref.current}/>
+            <Box sx={{display:"flex",alignItems:"start"}}>
+            <Button style={{backgroundColor:"#1976D2",color:"#fff",fontSize:"16px",padding:"5px 10px",marginBottom:"10px"}} onClick={()=>handleDownload(takenData)}>Generate PDF</Button>
           </Box>
            
-      <Table ref={ref} sx={{ minWidth:"90%"}} aria-label="customized table">
+      <Table sx={{ minWidth:"90%"}} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
