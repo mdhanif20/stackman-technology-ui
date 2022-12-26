@@ -9,7 +9,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import UserSideData from './UserSideData';
-
+import ReactPrint from "react-to-print";
+import Button from '@mui/material/Button';
+import {useRef} from "react";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -27,6 +29,7 @@ const UserSideSingleInfo = ({date}) => {
     const {users,token} = useAuth(); 
     const [takenData,setTakenData] = useState([]);
     const DateLocal = new Date(date).toLocaleDateString();
+    const ref = useRef();
 
     useEffect(()=>{
         const url = `https://stackman-server.onrender.com/singleUserInfo?email=${users.email}&date=${DateLocal}`;
@@ -35,22 +38,26 @@ const UserSideSingleInfo = ({date}) => {
         .then(data => setTakenData(data))
     },[DateLocal,users.email,token])
     
+
     return (
         <Box sx={{ml:{xs:0,sm:2}}}>
             <Typography sx={{textAlign:"start",fontSize:"20px",fontWeight:"500",pb:2,marginLeft:"15px"}} variant="body1" gutterBottom>
-                User Side Data
+                  User Side Data
             </Typography>
- 
-      <Table sx={{ minWidth:"90%"}} aria-label="customized table">
+          <Box sx={{display:"flex",alignItems:"start"}}>
+            <ReactPrint trigger={()=><Button style={{color:"#fff",backgroundColor:"#1976D2",marginBottom:"20px",fontSize:"16px",padding:"5px 10px 5px 10px"}}>GENERATE PDF</Button>} content={()=>ref.current}/>
+          </Box>
+           
+      <Table ref={ref} sx={{ minWidth:"90%"}} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell >Number</StyledTableCell>
-            <StyledTableCell >Token</StyledTableCell>
+            <StyledTableCell >Phone No</StyledTableCell>
+            <StyledTableCell >Token No</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {takenData?.map((row) =><UserSideData
+            {takenData?.map((row) =><UserSideData
             key={row._id}
             data={row}
             >
@@ -59,7 +66,6 @@ const UserSideSingleInfo = ({date}) => {
            
         </TableBody>
       </Table>
-
         </Box>
     );
 };

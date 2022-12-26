@@ -2,10 +2,13 @@ import React,{useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import AllUserDataList from './AllUserDataList';
-
+import ReactPrint from "react-to-print";
+import Button from '@mui/material/Button';
+import {useRef} from "react";
 
 const AllUserData = () => {
   const [allUserInfo,setAllUserInfo] = useState([]);
+  const ref = useRef();
   let value = 1;
   const serialNumber = (n)=>{
       value = value+1;
@@ -22,14 +25,16 @@ const AllUserData = () => {
             <Typography sx={{textAlign:"start",paddingBottom:"10px"}} variant="h6" gutterBottom component="div">
                All User Side Data
             </Typography>
-            
+            <Box sx={{display:"flex",alignItems:"start"}}>
+            <ReactPrint trigger={()=><Button style={{color:"#fff",backgroundColor:"#1976D2",marginBottom:"20px",fontSize:"16px",padding:"5px 10px 5px 10px"}}>GENERATE PDF</Button>} content={()=>ref.current}/>
+          </Box>
       
-       <Box sx={{width:{xs:"280px",sm:"400px",md:"570px",lg:"100%"}}}>
+       <Box sx={{width:{xs:"280px",sm:"400px",md:"100%",lg:"100%"}}}>
        <div style={{
             height:"80vh",
             overflow:"scroll"
             }}>
-            <table style={{ borderCollapse: "collapse", width:"500px",borderSpacing: "0",border:" 1px solid #ddd"}}>
+            <table ref={ref} style={{ borderCollapse: "collapse", width:"500px",borderSpacing: "0",border:" 1px solid #ddd"}}>
                 <thead style={{position:'sticky',top:'0px',color:'#fff',backgroundColor:"#0F0C0B"}}>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>No</th>
                 <th style={{textAlign:"left",padding:"8px",border:" 1px solid #ddd",fontWeight:"500"}}>Name</th>
