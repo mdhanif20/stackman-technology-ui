@@ -29,11 +29,9 @@ const UserSideSingleInfo = ({date}) => {
     const {users,token} = useAuth(); 
     const [takenData,setTakenData] = useState([]);
     const DateLocal = new Date(date).toLocaleDateString();
-    console.log(users)
     const handleDownload = (infos) =>{
       const doc = new jsPDF()
       for(let i=0; i < infos.length; i++){
-        console.log(i)
         const info = infos[i];
         const name = info.Name;
         const number = info.number;
@@ -46,7 +44,7 @@ const UserSideSingleInfo = ({date}) => {
         doc.text(5,5,renderToString(htmlElement))
         doc.addPage()
       }
-      doc.save(`${users.displayName}'s Data.pdf`)
+      doc.save(`${infos[infos.length-1].Name}'s Data.pdf`)
     }
 
     useEffect(()=>{
