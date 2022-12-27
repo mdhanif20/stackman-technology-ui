@@ -44,7 +44,7 @@ const UserSideSingleInfo = ({date}) => {
         doc.text(5,5,renderToString(htmlElement))
         doc.addPage()
       }
-      doc.save(`${infos[infos.length-1].Name}'s Data.pdf`)
+      doc.save(`${users.displayName}'s Data.pdf`)
     }
 
     useEffect(()=>{
