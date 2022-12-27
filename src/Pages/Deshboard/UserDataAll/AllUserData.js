@@ -20,7 +20,6 @@ const AllUserData = () => {
   const handleDownload = (infos) =>{
     const doc = new jsPDF()
     for(let i=0; i < infos.length; i++){
-      console.log(i)
       const info = infos[i];
       const name = info.Name;
       const number = info.number;

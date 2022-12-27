@@ -30,9 +30,9 @@ const TakeDataFromUser = ({date}) => {
         date:DateLocal,
         token:tokenNumber
     }
-    console.log(getAllData)
+
     useEffect(()=>{
-        fetch("https://stackman-server.onrender.com/userInfo")
+        fetch("https://stackman-server.onrender.com/userInfosAll")
         .then(res=>res.json())
         .then(data => {
             setTokenNumber(parseInt(data[data.length-1].token) + 1)
